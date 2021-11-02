@@ -1,0 +1,51 @@
+*{padding: 0;margin: 0;}
+body{
+    width: 100%;
+    height: 100%;
+}
+ul, li{
+    list-style: none;
+}
+.wrap{
+    width: 100%;
+    height: 100%;
+}
+.box_container{
+    width: 368px;
+    height: 500px;
+    margin: 50px auto;
+    /* 위치가 절대적인게 아닌 상대적으로 해준다. */
+    position: relative;
+}
+.box_container li{
+    width: 368px;
+    height: 500px;
+    transition: all 1s;
+    /* 
+    absolute 겹치기 가리기  부모에게 relative를 사용한 뒤 absolute적용을 선호
+    position: absolute를 사용하면 부모가 body가 됨
+    부모인 box_container position:relative;를 사용하면 부모 공간에만 배치
+    body태그의 넓이와 높이를 변동하면 카드의 위치가 바뀜을 확인 가능
+    */
+    position:absolute;
+    top: 0;
+    left: 0;
+    transform-origin: center bottom;
+}
+/* 
+.box_container li.item1{
+    z-index: 10;
+} 
+*/
+.box_container:hover li.item1{
+    transform:rotate(40deg);
+}
+.box_container:hover li.item2{
+    transform:rotate(20deg);
+}
+.box_container:hover li.item3{
+    transform:rotate(-20deg);
+}
+.box_container:hover li.item4{
+    transform:rotate(-40deg);
+}

@@ -1,0 +1,60 @@
+브라켓 설치 
+http://brackets.io/
+다운로드 후 설치
+확장기능-설치가능(emmet,Quick Form,Beauty)
+
+
+www.lipsum.com(영문 문서 생성기)
+http://guny.kr/stuff/klorem/(한글문서생성기)
+
+---------------------------------------------------
+컬러피커사이트 
+www.colorpicker.com
+
+이미지 더미 생성 사이트 
+http://placehold.it
+
+폰트크기비교
+www.pxtoem.com
+
+CSS3 그레이디언트 코드 생성하기
+http://www.colorzilla.com/gradient-editor
+
+가속도
+www.cubic-bezier.com
+
+박스와 텍스트 그림자
+http://css3generator.com
+
+무료호스팅
+http://www.dothome.co.kr
+
+
++++ 폰트연동 +++
+https://www.google.com
+-+-----------------------------------------------+-
+
+* 참고 사이트 *
+
+1. 굿디자인웹
+http://www.gdweb.co.kr
+
+2. 디비컷
+http://www.dbcut.com
+
+3.핀터레스트-디자인참고 사이트
+https://www.pinterest.co.kr/
+
+4. 드리블_ 색상 참고 사이트
+https://dribbble.com
+
+5.2021 웹디자인 어워드
+http://www.i-award.or.kr/web/
+
+
+
+
+
+
+
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트랜지션1</title>
+    <style>
+        *{  /*모든선택자*/
+          margin: 0;padding: 0;
+        }
+        body{
+            padding: 50px;
+        }
+
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: #f90;
+            transition-property:all;
+            transition-duration: 1s;
+            cursor: pointer;
+        }
+        #box1:hover{
+            background-color: #00f;
+            width: 200px;
+            height: 200px;   
+        }
+        /* 
+        transition:시간에 따른  변화를 만들어주는 속성( CSS속성을 변화)
+1.transition-property:크기,(배경)색, 넓이,높이,투명도(글씨 철자의 변화는 안됨)
+2.transition-duration:애니메이션 진행시간. 1초=1s(second)=1000ms,0.5s=500ms 
+
+*/
+        #box2{
+            width: 100px;
+            height:100px;
+            background-color: #f90;
+            border: 1px solid #000;
+            margin: 100px 0;  /*위아래 좌우*/
+            transition-property: all;
+            transition-duration: 2s;
+            /* border-radius:0; */
+        }
+        #box2:hover{
+            background-color: #390;
+            border: 5px solid #f00;
+            border-radius: 50%; /*모서리 둥글기*/
+        }
+
+        #box3{
+            width: 200px;
+            height: 200px;
+            border: 2px solid #000;
+            background-image: url(./images/image1.jpg);  /* 배경이미지:경로(폴더/파일명.확장자) */
+            background-repeat: no-repeat;/* 배경반복여부:반복하지않겠다(한번) */
+            background-size: 100% 100%;/* 배경이미지 크기: cover(좁은쪽 딱 맞게),contain(넓은쪽 딱맞게),%,px */
+            background-position:center center;
+            /* 배경위치:x축위치 y축위치(px,%,)
+            x축위치:left center right px,%
+            y축위치:top center bottom  px,% */
+            transition-property: all;
+            transition-duration: 2s;
+        }
+        #box3:hover{
+            background-size: 120% 120%;
+        }
+        #box4{
+            margin-top: 100px;
+            width: 200px;
+            height: 200px;
+            border: 2px solid #000;
+            background-image: url(./images/image2.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-position:center center;
+            transition-property: all;
+            transition-duration: 2s;
+        }
+        #box4:hover{background-image: url(./images/image3.jpg);}
+
+        .graph{
+            /* margin-top: 100px;  margin: 100px 0 0 0 ; */
+                margin: 100px auto;/*  margin:위아래여백 좌우여백(중립) */
+            width: 610px;
+            border: 2px solid  #000;
+        }
+        .graph h2{margin:30px 0;}
+        .bar{width: 10px;height: 50px;background: #09f;margin: 5px 5px 5px 0;transition: all  0.5s;}
+        /* transition-property: all; transition-duration: 0.5s; */
+        .bar:nth-of-type(1){transition-delay: 0.5s;  transition-timing-function: linear;}
+        .bar:nth-of-type(2){transition-delay: 1s; transition-timing-function: ease;}
+        .bar:nth-of-type(3){transition-delay: 1.5s; transition-timing-function:ease-in ;}
+        .bar:nth-of-type(4){transition-delay: 2s; transition-timing-function:ease-in-out;}
+        .bar:nth-of-type(5){transition-delay: 2.5s; transition-timing-function:ease-out ;}
+        .bar:nth-of-type(6){transition-delay: 3s; transition-timing-function:cubic-bezier(.51,-0.45,.36,1.45);}
+
+        .graph:hover .bar:nth-of-type(1){width: 100px;background: #f90;}
+        .graph:hover .bar:nth-of-type(2){width: 200px;background:#f3f;}
+        .graph:hover .bar:nth-of-type(3){width: 300px;background: #96f;}
+        .graph:hover .bar:nth-of-type(4){width: 400px;background:#3ff;}
+        .graph:hover .bar:nth-of-type(5){width: 500px;background: #3c9;}
+        .graph:hover .bar:nth-of-type(6){width: 600px;background:#c6cc33;}
+        /* :nth-child(n)-부모입장에서 자손 중에 몇번째 자손 
+           :nth-of-type(n)- 자신들 중에 몇번째
+        
+        */
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+    <div id="box4"></div>
+    <div class="graph">
+        <h2>CSS3 Transition</h2>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+</body>
+</html>
