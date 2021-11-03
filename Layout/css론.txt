@@ -1,0 +1,144 @@
+vmin / vmax
+
+vmin과 vmax는 너비값과 높이값에 최대,최소값을 지정 가능
+ex) 1280 x 1000 사이즈의 웹사이트가 있으면 
+1vmin = 10px 1vmax=12.8px
+(최대 사이즈가 1280이고 최소 사이즈가 1000이기 때문)
+
+즉!!
+vmin: 뷰포트 너비 또는 높이를 기준으로 하는 최소 값
+vmax: 뷰포트 너비 또는 높이를 기준으로 하는 최대 값
+
+
+ex & ch
+
+em과rem과 비슷한 개념 -> 현재 폰트 사이즈에 의존
+ex) width: 10ch 는 문자열10개의 넓이
+(문자 하나가 5px이면 넓이는 50px 이라는뜻?)
+
+ex 단위의 정의 -> 현재 폰트의 x-높이값 또는 em의 절반 값
+(x-높이값은 소문자 x의 높이값 이기도함 이로 인해 폰트의 중간 지점을 알 수 있다
+타이포그래픽에서 메밀 조정시 사용한다고 함)
+
+
+css 방법론
+
+추구성(사용 목적으로 봐도 무방할 듯)
+1. 코드의 재사용성 높이기
+2. 쉬운 유지보수
+3. 확장 가능하게 하기 ( 이해 안됨)
+4. 클래스명으로 무슨 의미인지 예측 가능하게 하기
+
+정의 
+css에 대한 확장형 모듈식 구조
+css의 프레임워크가 아닌 하나의 스타일 가이드
+
+SMACSS의 유의사항(Scalable and Modular Architecure for CSS)
+*파생된 CSS 셀렉터 사용금지
+*ID 셀렉터 사용금지
+*!important 사용 금지
+*Class 이름은 의미있게, 다른 개발자가 이해할 수 있도록 선언
+
+1. Base - 기초 스타일
+기본 스타일: Reset, Default, Variables, Mixins
+!important를 쓸 필요가 없다
+선택자: 주로 요소 선택자
+ex) imput[type=text] 와 같은 느낌
+
+2. Layout - 레이아웃 관련된 스타일
+Class명에 suffix “l-”를 붙인다
+(참고 사이트: http://www.qnx.com/developers/docs/qnxcar2/
+index.jsp?topic=%2Fcom.qnx.doc.neutrino.getting_started%2Ftopic%
+2Fs1_procs_exec_spawn_l_suffix.html)
+선택자: 아이디(#)나 클래스(.)
+기능: 페이지를 구획하는 스타일(예: 헤더, 푸터, 그리드 …)
+
+3. Module(Components) -  모듈 관련 스타일
+기능 : 레이아웃 요소 안에 들어가는 더 작은 부분들 (네비게이션 바, 말풍선, 대화상자, 위젯 등)
+스타일 재사용을 위한 요소
+Block, Element, Module
+재사용을 위해 id 셀렉터와 element를 사용하지 않는다.
+만약, element 셀렉터를 사용해야 한다면, .box > span 처럼 child (자식)셀렉터를 사용
+사용 예시) nav bar, 이미지 슬라이더, dialogs, widgets, tables, icons
+
+4. State - 상태를 나타내는 스타일
+기능: 다른 스타일에 덧붙이거나 덮어 씌워서 상태를 나타냄 ( 펼침과 접힘, 성공과 실패 등 )
+선택자: 클래스 선택자 한개, 같은 모듈에 두 상태를 적용하지 말 것.
+!important를 쓸 수 있다 (최소화 할 것)
+Hidden, expend, active, hover 등의 상태에서 사용
+Class명에 suffix “is-” 또는 “s-”를 붙여서 사용 (특정 모듈은 모듈 이름도 뒤에 붙인다. ex) is-tab-active )
+
+5. Theme
+사이트 전반적 look and feel 제어
+색상이나 이미지를 불변하는 스타일과 분리하는 것. 기존 스타일을 재선언하여 사용할 수 있다.
+적용범위가 넓은 테마는 “theme-”를 suffix를 붙여 사용한다.
+
+BEM
+(Block, Element, Module)
+
+정의
+BEM은 Block Element Modifier의 약자이다
+OOP(Object Oriented Programming)와 유사하다
+ID는 사용할 수 없고, 오직 class명만 사용할 수 있다.
+.header __navigation ‐‐secondary과 같은 class를 사용한다
+
+1. Block
+block은 문단 전체에 적용된 element(요소) 또는 element를 담고 있는 컨테이너를 말한다.
+재사용 할 수있는 기능적으로 독립적인 페이지 구성 요소. HTML에서 블록은 class 속성으로 표시된다.
+형태(red, big)가 아닌 목적(menu, button)에 맞게 결정해야 한다.
+블록은 환경에 영향을 받지 않아야 한다. 즉, 여백이나 위치를 설정하면 안된다.
+태그, id 선택자를 사용하면 안된다.
+블록은 서로 중첩해서 작성 할 수 있다.
+
+2. Element
+element는 block 안에서 특정 기능을 수행하는 컴포넌트이다. element는 상황에 따라 달라진다.
+각 element는 두 개의 밑줄표시로 연결하여 block 다음에 작성한다.
+*이름이 길면 하이픈 '-'으로 연결한다(필수는 아님ㅋ)
+블록안에서 특정 기능을 담당하는 부분.
+block__element 형태로 사용 (더블 언더바)
+형태(red, big)가 아닌 목적(item, text, title)에 맞게 결정해야 한다.
+요소는 중첩해서 작성 할 수 있다.
+요소는 블록의 부분으로만 사용 할 수 있고 다른 요소의 부분으로 사용할 수 없다.
+모든 블록에서 요소는 필수가 아닌 선택적으로 사용한다. 즉, 블록안에 요소가 없을 수도 있다.
+
+3. Modifiers
+Modifier은 block 또는 element의 속성이다
+이 속성은 block 또는 element의 외관이나 상태를 변화시킨다
+Class명은 “–“를 추가하여 modifier 추가
+ex) block--modifiers{...}
+블록이나 요소의 모양(color, size) / 상태(disabled, checked)를 정의한다.
+block__element--modifier, block--modifier 형태로 사용(더블 하이픈)
+수식어의 *블리언 타입과 *키-벨류 타입이 있다.
+*블리언 타입 ( boolean type)
+블리언 타입에 해당하는 값은 true,false로 두 가지가 끝
+ex)
+1 < 2; // true
+1 > 2; // false
+3 === 3; // true
+3 !== 3; // false
+Number.isFinite(Infinity); // false
+Number.isNaN(NaN); // true
+'hello'.includes('ll'); // true
+
+
+수식어는 단독으로 사용할 수 없다. 즉 기본 블록과 요소에 추가하여 사용해야 한다.
+
+
+
+OOCSS = OOCASS + Sass
+(Object Oriented CSS)
+정의
+Nicole Sullivan에 의해 개발된 프레임워크
+CSS를 모듈 방식으로 코딩하여 중복을 최소화하는 기법
+
+클래스 이름 짓기
+간결함: 되도록 짧게
+명료함: 스타일과 작동 방식이 고스란히 드러나게
+분명한 말뜻(Semantics): 어떻게 생겼는지가 아니라, 어떤 모듈인지
+포괄성: 대부분의 사이트에서도 적용되도록
+화면 중심성: 종이나 다른 매체가 아닌 모니터를 기준으로
+
+OOCSS의 단점
+다중 클래스 사용으로 HTML가 복잡해짐
+non-semantic한 클래스 사용
+Sass와 함께 사용하게 되면 단점을 보완할 수 있음
