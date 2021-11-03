@@ -6,3 +6,66 @@ body,html{width: 100%;height: 100%;font-family: 'Noto Sans KR', sans-serif;}
 ul{list-style: none;}
 a{text-decoration: none;}
 button,a,input{border:0;outline: 0;}
+
+/* 공통서식 */
+.wrap{
+    /* 기계마다 해상도가 다르니 100%로 보여주게 한다 */
+    width: 100%;
+    height: 100%;
+}
+.page{
+    /* 각각의 페이지마다 초기화를 해줘야 하기 때문 */
+    clear: both;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#hd{
+    width: 100%;
+    height: 42px;
+    background: rgba(0,0,0,0.3);
+    top: 0;
+    left: 0;
+    z-index: 10;
+    position: fixed;
+}
+#hd #tnb_lang{
+    float: left;
+}
+#hd #tnb_skip{
+    float: right;
+}
+#hd nav li{
+    float: left;
+    padding: 0 10px;
+    font-weight: bold;
+    position: relative;
+}
+#hd nav li::after{
+    /* width는 100%  한 줄에 하나만 쓴다.*/
+    display: block;
+    /* after은 content부터 시작을 한다 텍스트나 이미지 추가*/
+    content: "|";
+    position: absolute;
+    top: 13px;
+    right: 0;
+    font-size: 10px;
+    color: #ddd;
+}
+#hd nav li:last-child:after{
+    /* 제일 끝에는 생략하기 위해 마지막을 이렇게 처리해줘요 */
+    content: "";
+}
+#hd nav li a{
+    /* display: block;   링크의 영역을 넓게 해주는 역할이에요
+    인라인 요소를 블럭으로 나꿔줍니다. width값을 100%로 넓혀주는
+    부분도 있다. a태그는 인라인 요소여서 대부분 a태그에는 block
+    처리를 해주고 있어요.*/
+    display: block;
+    color: aliceblue;
+    line-height: 42px;
+    font-size: 14px;
+}
+#hd nav li a:hover{
+    color: chocolate;
+}
