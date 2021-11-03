@@ -1,0 +1,106 @@
+@charset "UTF-8";
+/* 기본 태그를 설정 하는 것을 reset이라고도 해요 */
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    font: 14px "맑은 고딕", "Malgun Gothic","돋움",Dotum ,arial, sans-serif; 
+    color:#333;
+    background: #d6d6d6 url(../images/topbg.jpg) repeat-x;
+}
+h1,h2,h3,h4,h5,h6{
+    /* inherit 부모 요소에 상속을 받아요, 즉 body태그에 있는 크기인 14px이 되는 것이죠 */
+    font-size: inherit;
+    font-weight: normal;
+}
+ul,li{
+    list-style: none;
+}
+/* png이든 jpg든 웹 브라우저에서는 테두리가 생기기 때문에 none 처리를 해줘야 해요 */
+img{
+    border: none;
+    /* verticla-align은 보통 img form태그에 주로 사용을 해요. 세로 정렬: */
+    vertical-align: top;
+}
+a{
+    text-decoration: none;
+    color: #333;
+}
+.wrap{
+    width: 900px;
+    /* 중앙정렬 */
+    margin: 0 auto;
+}
+.header{
+    height: 102px;
+}
+.header .logo{
+    float: left;
+    /* 이미지에게는 vertical-align으로 속성을 적용할 수 없어요 */
+    margin-top: 35px;
+}
+.gnb{
+    float: right;
+    margin-top: 45px;
+}
+.gnb li{
+    float: left;
+    /* 외부 요소이기 때문에 */
+    margin-left: 40px;
+}
+.gnb li a{
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.gnb li a:hover{
+    color: #be9659;
+    text-decoration: underline;
+}
+.visual{
+    /* 위아래 10px 좌우0 */
+    margin: 10px 0;
+
+}
+.main{
+    height: 127px;
+}
+.main > div{
+    /* width: 160px;
+    height: 97px; */
+    width: 300px;
+    height: 127px;
+    float: left;
+    font: 13px;
+    padding-left: 140px;
+    padding-top: 30px;
+    box-sizing: border-box;
+}
+.main > div:nth-child(1){
+    background: url(../images/ban1.jpg) no-repeat;
+}
+.main > div:nth-child(2){
+    background: url(../images/ban2.jpg) no-repeat;
+}
+.main > div:nth-child(3){
+    background: url(../images/ban3.jpg) no-repeat;
+}
+.main > div p{
+    /* 글씨를 14px로 했었는데 행간을 1.5배 한다는 것이에요. 즉,21px이 되는 것이죠 */
+    line-height: 1.5;
+    font-size: 13px;
+}
+.main > div p a:hover{
+    color: #be9659;
+}
+.footer{
+    background: #000;
+    padding: 30px 0;
+    margin-top: 10px;
+}
+.footer p{
+    color: #fff;
+    line-height: 1.5;
+    text-align: center;
+}

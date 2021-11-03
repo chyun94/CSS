@@ -1,0 +1,29 @@
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <!-- 인터넷익스플로러의 최신브라우저인 IE-Edge로 문서 열기 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 아이폰 계열의 웹앱 설정 -->
+    <meta name="apple-mobile-web-app-title" content="JT,스튜디오제이티">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- 공통 웹앱 검색엔진의 검색 결과 설정-->
+    <meta name="title" content="JT,스튜디오 제이티">
+    <meta name="keywords" content="스튜디오 제이티,반응형웹,웹에이전시">
+    <meta name="description" content="반응형 웹과 적응형 웹이란 무엇일까요? 적응형 웹과 반응형웹 두 가지 방법 모두 근본적으로는 웹 사이트가 모바일 기기와 다양한 화면 크기에서 원활한 정보를 제공하여 더 나은 모바일 사용자 경험을 제공하기 위한 방법입니다. 하지만 적응형 웹과 반응형 웹은 사이트의 설계부터 구동까지">
+    <!-- SNS에 의한 검색결과 설정 -->
+    <meta itemprop="name" content="스튜디오 제이티">
+    <meta itemprop="description" content="반응형 웹과 적응형 웹이란 무엇일까요? 적응형 웹과 반응형웹 두 가지 방법 모두 근본적으로는 웹 사이트가 모바일 기기와 다양한 화면 크기에서 원활한 정보를 제공하여 더 나은 모바일 사용자 경험을 제공하기 위한 방법입니다. 하지만 적응형 웹과 반응형 웹은 사이트의 설계부터 구동까지">
+    <meta itemprop="image" content="./img/thumb_sns-300x300.jpg">
+    <!-- 페이스북 연동 설정 -->
+    <meta property="fb:app_id" content="APP_ID">
+    <!-- 페이스북, 트위터, 카카오톡의 크롤러 연동 설정 -->
+    <meta property="og:type" content="Website">
+    <meta property="og:title" content="스튜디오 제이티">
+    <meta property="og:url" content="./index.html">
+    <meta property="og:description" content="반응형 웹과 적응형 웹이란 무엇일까요? 적응형 웹과 반응형웹 두 가지 방법 모두 근본적으로는 웹 사이트가 모바일 기기와 다양한 화면 크기에서 원활한 정보를 제공하여 더 나은 모바일 사용자 경험을 제공하기 위한 방법입니다. 하지만 적응형 웹과 반응형 웹은 사이트의 설계부터 구동까지">
+    <meta property="og:image" content="./img/thumb_sns-300x300.jpg">
+    <!-- 메타포 아이콘 설정 -->
+    <link rel="shortcut icon" href="./img/favicon32.png">
+    <link rel="shortcut icon" href="./img/favicon32.png" type="image/x-icon">
+    <link rel="apple-touch-icon-180x180" sizes="180x180" href="./img/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-32x32.png">
