@@ -37,7 +37,198 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./images/ico_kimchang.png">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="common.css">
+<style>
+    /* 비디오 */
+    #vdo{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    #vd1{
+        width: 100%;
+        height: auto;
+        /* 세로로 쌓이게 하는게 disply: block 한 줄에 한 요소만 인라인은 옆으로 */
+        display: block;
+    }
+    /* 검색창 */
+    #cover_page{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
 
+    }
+    .tit{
+        width: 444px;
+        height: 55px;
+        /* 위 200 좌우 중간 아래 90 */
+        margin: 200px auto 90px;
+        background-image: url(data/main_sprite_pannel.png);
+        background-repeat: '';
+    }
+    #frm1{
+        width: 1000px;
+        height: 80px;
+        margin: 0 auto;
+        background: rgba(0,0,0,0.6);
+    }
+    #keyword{
+        width: 910px;
+        height: 70px;
+        display: block;
+        float: left;
+        margin: 5px;
+        font-size: 18px;
+        text-indent: 24px;
+        opacity: 0.6;
+        transition: 0.5s;
+    }
+    #keyword:focus{
+        opacity: 1;
+        width: 800px;
+
+    }
+    #search{
+        display: block;
+        width: 70px;
+        height: 70px;
+        float: right;
+        margin: 5px;
+        background-image: url(data/ico1.png);
+        background-repeat: no-repeat;
+        opacity: 0.6;
+        transition: 0.5s;
+        cursor: pointer;
+        text-indent: -9999px;
+        /* bg투명색 */
+        background-color: transparent;
+        background-position: center center;
+    }
+    #page2,#page3{
+        background-image: url(data/main_movie1.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    /* page2 */
+    #page2{
+        background-attachment: fixed;
+        padding-top: 40px;
+    }
+    #insight{
+        background-color: #f0f0f0;
+        height: 95%;
+    }
+    .page_tit{
+        text-align: center;
+        line-height: 100px;
+        font-size: 48px;
+        font-weight: bold;
+        padding-top: 40px;
+    }
+    .thum_lst{
+
+    }
+    .thum_lst li{
+        width: 373px;
+        height: 320px;
+        margin-left: 40px;
+        margin-top: 40px;
+        float: left;
+        /* 자손중 absolute가 있기 때문에 이 요소만 따로 주는 것 */
+        position: relative;
+        /* background-color: #ccc; */
+    }
+    .thum_lst li a{
+        color:#333;
+        border: 3px solid transparent;
+        display: block;
+        height: 300px;
+        width: 360px;
+        margin: 7px;
+        background-color: #e1e1e1;
+        overflow: hidden;
+        transition-delay: 0.1s;
+    }
+    .thum_lst li.col8{
+        width: 786px;
+    }
+    .cate_tit{
+        padding: 14px;
+        color: #fe3c08;
+        text-decoration: underline;
+    }
+    .lst_tit{
+        padding: 14px;
+    }
+    .lst_com{
+        padding: 14px;
+    }
+    .lst_date{
+        padding: 14px;
+    }
+    .thum_lst li.col8 a{
+        width: 770px;
+        color: #fff;
+        background-image: url(data/thumb_bg.png);
+        background-size: cover;
+    }
+    /* display의 block와 none는 중간 단계가 없으므로 opacity로 주면 된다 */
+    .thum_lst li a::after{
+        /* display: none; */
+        content: '▶';
+        position: absolute;
+        right: 24px;
+        bottom: 27px;
+        opacity: 0;
+    }
+    .thum_lst li a:hover{
+        border: 3px solid #fe3c08;
+        background: #fff;
+        color: #fe3c08;
+        transition: 0.6s;
+    }
+    .thum_lst li a:hover::after{
+        color: #fc3c08;
+        /* display: block; */
+        transition: 0.6s;
+        opacity: 1;
+    }
+    /* page3 */
+    #vs_con{
+        padding-top: 50px;
+    }
+    #vs{
+        /* 1280px */
+        width: 100%;
+        background: #fff;
+        padding-top: 50px;
+        position: relative;
+        overflow: hidden;
+    }
+    /* li가 3개지만 마지막 li에 ㅁ리 콘텐츠를 배치하기 위한 li자리를 만들어 둔다 */
+    .img_box{
+        width: 400%;
+    }
+    .img_box li{
+        float: left;
+        width: 25%;
+    }
+    .img_box li .pic{
+        display: block;
+        width: 580px;
+        margin-left: 40px;
+        margin-bottom: 40px;
+        float: left;
+    }
+    .img_box li .tit_box{
+        width: 580px;
+        margin-left: 40px;
+        margin-bottom: 40px;
+        float: right;
+    }
+</style>
 </head>
 <body>
     <!-- 시멘틱 태그를 이용해보자 -->
@@ -49,31 +240,39 @@
                     <li><a href="#">EN</a></li>
                     <li><a href="#">JP</a></li>
                     <li><a href="#">CN</a></li>
-                    
-                </ul>
-            </nav>
-            <nav id="tnb_skip">
-                <ul>
-                    <li><a href="licence.html#page1">지식재산권</a></li>
-                    <li><a href="licence.html#page2">사회공헌</a></li>
-                    <li><a href="licence.html#page3">인재채용</a></li>
                 </ul>
             </nav>
         </header>
+        <input type="checkbox" name="checkbox" id="ck1">
+        <label for="ck1" class="open_btn">열기</label>
+        <!-- label의 for값은 input태그의 id값과 동일하게 하면 서로 연동된다 -->
         <nav id="gnb">
-
+            <label for="ck1" class="close_btn">닫기</label>
+            <ul class="main">
+                <li><a href="#">EXPERTUSE</a></li>
+                <li><a href="#">PROFESSIONS</a></li>
+                <li><a href="#">INSIGHT</a></li>
+                <li><a href="#">ABOUT</a></li>
+            </ul>
+            <ul id="tnb_skip" class="bottom">
+                <li><a href="licence.html#page1">지식재산권</a></li>
+                <li><a href="licence.html#page2">사회공헌</a></li>
+                <li><a href="licence.html#page3">인재채용</a></li>
+            </ul>
         </nav>
         <div class="page" id="page1">
             <figure id="vdo">
                 <!-- 구글 크롬은 autoplay를 막아뒀어요, 그래서 muted라는 속성을 추가해 줘야 해요 -->
                 <video src="data/main_movie3.mp4" id="vd1" autoplay loop muted></video>
+
                 <section class="page_wrap" id="cover_page">
-                    <h2 class="tit">아무거나</h2>
+                    <h2 class="tit"></h2>
                     <form action="" id="frm1">
                         <input type="text" placeholder="검색어를 입력해 주세요" name="" id="keyword">
                         <input type="submit" id="search">
                     </form>
                 </section>
+
             </figure>
         </div>
         <div class="page" id="page2">
@@ -130,7 +329,7 @@
                 <figure id="vs">
                     <ul class="img_box">
                         <li>
-                            <img src=".date/sl1.jpg" alt="배너1" class="pic">
+                            <img src="data/sl1.jpg" alt="배너1" class="pic">
                             <div class="tit_box">
                                 <h3 class="vs_tit">아시아-태평양 지역 최우수 로펌 선정 -Asialaw Regional Awards 2021</h3>
                                 <p class="vs_com">김-장 법률사무소가 제2회 Asialaw Regional Awards에서 다시 한 번 'Asia-Pacific Firm of the Year(올해의 아시아 로펌 상)'을 수상하는 영예를 안았습니다</p>
@@ -138,7 +337,7 @@
                             </div>
                         </li>
                         <li>
-                            <img src="./date/sl2.png" alt="배너2" class="pic">
+                            <img src="data/sl2.png" alt="배너2" class="pic">
                             <div class="tit_box">
                                 <h3 class="vs_tit">WWL:Korea 2021년판에 93명의 Natiional Leader선정</h3>
                                 <p class="vs_com">김-장 법률사무소 93명의 변호사-변리사-회계사들이 Who's Who Legal(후즈후리걸):Korea 2021년판에서 23개 업무분야의'National Leader'로 선정되었습니다.</p>
@@ -146,7 +345,7 @@
                             </div>
                         </li>
                         <li>
-                            <img src="./date/sl2.png" alt="배너2" class="pic">
+                            <img src="data/sl2.png" alt="배너2" class="pic">
                             <div class="tit_box">
                                 <h3 class="vs_tit">ChambersAsia-Pacific Awards에서 올해의 한국 로펌 상 수상</h3>
                                 <p class="vs_com">Chambers and Partners는 김-장 법률사무소를 올해의 한국 로펌으로 발표하며, "전법률 영역에 걸친 폭 넓고 우수한 서비스가 특히 주목된다"고 소개하였습니다</p>
