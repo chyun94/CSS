@@ -196,7 +196,7 @@
         opacity: 1;
     }
     /* page3 */
-    #vs_con{
+    #vs_com{
         padding-top: 50px;
     }
     #vs{
@@ -227,6 +227,133 @@
         margin-left: 40px;
         margin-bottom: 40px;
         float: right;
+    }
+    .vs_tit{
+        padding: 24px;
+        font-size: 22px;
+    }
+    .vs_com{
+        padding: 24px;
+        color: #999;
+    }
+    .more{
+        display: block;
+        width: 120px;
+        height: 40px;
+        border: 1px solid #333;
+        line-height: 40px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition: 0.5s ease-in-out;
+        margin: 24px;
+    }
+    .more:after{
+        display: block;
+        content: '';
+        width: 100%;
+        height: 100%;
+        bottom: -100%;
+        left: 0;
+        bottom: -100%;
+        position: absolute;
+        background: #fe3c08;
+        transition: 0.5s ease-in-out;
+    }
+    .more span{
+        display: block;
+        color: #333;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        transition: 0.5s ease-in-out;
+    }
+    .more:hover{
+        border: 2px solid #fe3c08;
+    }
+    .more:hover::after{
+        bottom: 0;
+    }
+    .more:hover span{
+        color: #fff;
+    }
+    /* 왼쪽 -> 오른쪽 */
+    .btn_box{
+        position: absolute;
+        right: 230px;
+        bottom: 50px;
+        z-index: 50;
+        width: 340px;
+        height: 14px;
+        overflow: hidden;
+    }
+    .btn_box li{
+        widows: 100px;
+        margin-left: 12px;
+        float: left;
+    }
+    .btn_box li button{
+        display: block;
+        width: 100px;
+        height: 10px;
+        background: #666;
+        cursor: pointer;
+    }
+    .btn_box li.on button{
+        background: #fe3c08;
+        
+    }
+    .ico_link{
+        clear: both;
+        margin-top: 30px;
+        width: 100%;
+        height: 100px;
+        background: #fff;
+        
+    }
+    .ico_link li{
+        width: 50%;
+        float: left;
+        height: 100px;
+    }
+    .ico_link li a{
+        display: block;
+        font-size: 22px;
+        color: #333;
+        background: #FFF;
+        line-height: 100px;
+        text-align: center;
+        height: 100px;
+    }
+    .ico_link li a span{
+        float: left;
+        display: block;
+        padding-left: 15px;
+    }
+    .ico_link li a .ico{
+        margin-top: 23px;
+        margin-left: 260px;
+        background-repeat: no-repeat;
+        background-image: url(data/main_sprite_pannel.png);
+        box-sizing: border-box;
+    }
+    .ico_link li a.item1 .ico{
+        width: 34px;
+        height: 53px;
+        background-repeat: no-repeat;
+        background-position: 0 -301px;
+    }
+    .ico_link li a.item2 .ico{
+        width: 42px;
+        height: 53px;
+        background-repeat: no-repeat;
+        background-position:  -38px -301px;
+    }
+    .ico_link li a.item2{
+        background: #eee;
     }
 </style>
 </head>
@@ -325,7 +452,7 @@
             </section>
         </div>
         <div class="page" id="page3">
-            <section class="page_wrap" id="vs_con">
+            <section class="page_wrap" id="vs_com">
                 <figure id="vs">
                     <ul class="img_box">
                         <li>
@@ -361,7 +488,7 @@
                         <li><button></button></li>
                     </ul>
                 </figure>
-                <ul class=""ico_link>
+                <ul class="ico_link">
                     <li>
                         <a href="#" class="item1">
                             <span class="ico"></span>
@@ -376,18 +503,20 @@
                     </li>
                 </ul>
                 <footer id="ft">
-                    <ul>
-                        <li><a href="about.html#page3"></a></li>
-                        <li><a href="about.html#page4"></a></li>
+                    <ul class="fnb">
+                        <li><a href="about.html#page3">면책공고</a></li>
+                        <li><a href="about.html#page4">면책공고</a></li>
                         <li><a href="#">면책공고</a></li>
                         <li><a href="#">개인정보처리방침</a></li>
                         <li><a href="#">웹접근성</a></li>
                     </ul>
-                    <p class="copyright">&amp;copy;2021 Kim &amp; Chang. All Rights Reserved</p>
+                    <p class="copyright"> 2021 Kim &amp; Chang. All Rights Reserved</p>
                 </footer>
+                <div id="bottom"></div>
             </section>
         </div>
     </div>
     <a href="#" id="toTop">↑</a>
+    <a href="#bottom" id="toBot">↓</a>
 </body>
 </html>

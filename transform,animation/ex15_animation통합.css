@@ -1,0 +1,108 @@
+*{padding: 0;margin: 0;}
+html, body{
+    width: 100%; height: 100%; padding: 50px;
+}
+.wrap{
+    width: 90%;
+    height: 300px;
+    border: 1px solid #000;
+    margin-bottom: 50px;
+    position: relative;
+}
+/* 가상의 공간 생성 */
+.clearfix{
+    width: 100%;
+    height: 100px;
+    /* background: blanchedalmond; */
+}
+/* .wrap> div{} */
+/* 속성 선택자 방법 위와 같음 */
+/* [class*="box"]{} */
+.wrap > div{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    color: rgb(238, 236, 229);
+    box-shadow: 0 0 10px crimson;
+    position: absolute;
+    animation-play-state: running;
+    animation: roAni 2s infinite alternate linear both 1s ;
+
+    /* 
+    animation-name: roAni;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-delay: 1s; 
+    
+    위의 속성들을 아래와 같이 줄여서 가능하다.
+    animation: name duration interation-count direction timeing-function  fill-mode delay
+    duration과 delay는 겹치기 때문에 duration먼저 그 뒤로 delay를 써야한다.
+    
+    */
+
+}
+.wrap > div:hover{
+    animation-play-state: paused;
+}
+h2{
+    font-size: 0.5em;
+    /* 소문자를 대문자로 */
+    text-transform: uppercase;
+    font-weight: normal;
+}
+/* 
+animation-direction 애니메이션 방향
+nomal(기본값): from에서 to로 진행
+reverse: to에서 from으로 진행
+alternate: from에서 to로 진행, to에서 from으로 진행(주로 쓰임)
+alternate-reverse; to에서from으로 진행, from에서 to로 진행
+animation-iteration-count: 애니메이션 실행 횟수
+양의 정수를 써야함
+animation fill mode 는 애니메이션이 진행 후 결과 표시
+none 기본값, 진행 후 결과 표시 상태 없음
+backwards 진행 전 상태
+forwards 진행 후 상태
+both 진행 후 상태
+animation-play-state: 애니메이션 실행 또는 일시정지 제어 속성
+running 실행
+paused 일시정지
+
+*/
+.box1{
+    background: rgb(115, 102, 230);
+    animation-duration: 3s;
+
+}
+.box2{
+    background: rgb(238, 228, 141);
+    animation-duration: 4s;
+
+}
+.box3{
+    background: rgb(0, 195, 255);
+    animation-duration: 5s;
+}
+.box4{
+    background: rgb(202, 234, 238);
+    animation-duration: 6s;
+
+}
+
+@keyframes roAni{
+    0%{
+        left:0;
+        transform:  rotate(0deg);
+        }
+    50%{
+        transform:  rotate(-360deg);
+        }
+    100%{
+        left: 1000px;
+        transform: rotate(360deg);
+    }
+}
