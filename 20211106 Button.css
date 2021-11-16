@@ -23,6 +23,7 @@ body{
     display: inline-block;
     background: #fff;
     margin: 20px;
+    
 }
 .container a:before,
 .container a:after{
@@ -35,6 +36,7 @@ body{
 .container a:nth-child(1):before,
 .container a:nth-child(1):after{
     background: linear-gradient(45deg,#91999b,#0e1538,#0e1538,#d400d4);
+    
 }
 .container a:nth-child(2):before,
 .container a:nth-child(2):after{

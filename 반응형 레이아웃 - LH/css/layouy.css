@@ -131,13 +131,13 @@ body{
 #content1 > div{
     padding: 5px;
     transition: all 0.5s;
-    border: 1px solid #f00;
+    /* border: 1px solid #f00; */
     float: left;
 }
 #content1 > div > div{
     padding: 5px;
     transition: all 0.5s;
-    border: 1px solid #00f;
+    border: 1px solid #c7c6c6;
     width: 100%;
     height: 100%;
 }
@@ -256,4 +256,270 @@ body{
     width: 220px;
     height: 280px;
     /* float: left; */
+    text-align: center;
+}
+.call h3{
+    margin: 10px 5px;
+    font-size: 16px;
+    width: 100%;
+    /* block는 넓이를 100%를 해주는 것과 같다 */
+    display: block;
+}
+.call span{
+    width: 100%;
+    /* background: #ccc; */
+    font-size: 24px;
+    font-weight: bold;
+    color: #ef7b15;
+}
+.call ul{
+    width: 100%;
+    /* background: #ccc; */
+}
+.call ul li{
+    margin: 10px auto;
+    opacity: 1;
+    transition: all 0.5s;
+    width: 96%;
+}
+
+.call ul li a{
+    display: block;
+    width: 190px;
+    height: 54px;
+    line-height: 54px;
+    /* border: 1px solid #00f; */
+    background-repeat: no-repeat;
+    background-size: 100% 54px;
+    background-position: center center;
+}
+.call ul li:nth-of-type(1) a{
+    background: url(../img/btn51.png);
+}
+.call ul li:nth-of-type(2) a{
+    background: url(../img/btn52.png);
+}
+.call ul li:nth-of-type(3) a{
+    background: url(../img/btn53.png);
+}
+.call ul li:hover{
+    opacity: 0.6;
+}
+.call span img{
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+}
+/* 아이콘 버튼6개 */
+.icon_btn{
+    width: 440px;
+    height: 280px;
+}
+.icon_btn ul{
+    width: 100%;
+    height: 100%;
+}
+.icon_btn ul li{
+    float: left;
+    width: 33.3333%;
+    height: 50%;
+    text-align: center;
+    /* border: 1px solid#00f; */
+    padding-top: 25px;
+}
+.icon_btn ul li a{
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.5s;
+}
+.icon_btn ul li a img{
+    width: 70px;
+    transform: scale(1);
+    transition: all 0.5s;
+}
+.icon_btn ul li a:hover, .icon_btn ul li a:active{
+/* active는 누르는 순간 */
+    font-size: 15px;
+    color: #ef7b15;
+}
+.icon_btn ul li a:hover img, .icon_btn ul li a:active img{
+    transform: scale(1.13);
+    transition: all 0.5s;
+}
+/* LH 청약센터 */
+.center{
+width: 270px;height: 280px;
+}
+.center a{
+    display: block;
+    height: 100%;
+    background-image: url(../img/lhbg1.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: right bottom;
+    background: 1px solid #c7c6c6;
+    background-color: #e9ebf0;
+    padding-top: 30px;
+    text-align: center;
+}
+.center a h3{
+    color: #454545;
+    font-size: 20px;
+}
+.center a p{
+    padding: 10px;
+    color: #454545;
+    font-size: 12px;
+}
+/* 분양공고검색 */
+.bulletin{
+    width: 270px;height: 280px;
+    text-align: center;
+}
+.bulletin h3{
+    /* display: block; */
+    padding-top: 30px;
+    color: #454545;
+    font-size: 20px;
+}
+.bulletin form{
+    width: 80%;
+    height: 30px;
+    border: 1.6px solid blue;
+    border-radius: 20px;
+    /* 가운데 정렬 */
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-left: 5px;
+}
+.bulletin form input{
+    display: block;
+    border: none;
+    float: left;
+    background-color: transparent;
+}
+.bulletin form .search_box{
+    width: 80%;
+    height: 30px;
+    margin-left: 10px;
+    /* text-indent: 10px;  ml10px 대신 이렇게 해도 무관*/
+}
+.bulletin form .search_btn{
+    /* float: right; */
+    width: 20px;
+    height: 20px;
+    background-image: url(../img/search.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: center;
+    text-indent: -9999px;
+    color: #454545;
+    margin-top: 3px;
+}
+.bulletin h4{
+    padding-top: 50px;
+    text-align: center;
+    font-size: 15px;
+    color: #454545;
+}
+.bulletin h4 span{
+    color: #f00;
+}
+.bulletin ul{
+    margin-top: 20px;
+}
+.bulletin ul li{
+    float: left;
+    width: 33.3333%;
+    text-align: center;
+}
+.bulletin ul li a{
+    display: block;
+}
+.banner{
+    clear: both;
+    width: 1200px;
+    height: 110px;
+}
+/* banner */
+.banner{
+    clear: both;
+    width: 1200px;
+    height: 110px;
+    border-bottom: 2px solid #0055a2;
+}
+.banner > div{
+    border: none !important;
+}
+.banner ul{
+    width: 100%;
+    overflow: hidden;
+}
+.banner ul li {
+    float: left;
+    width: 16.6667%;
+    height: 82px;
+    text-align: center;
+}
+/* content2 */
+#content2{
+    clear: both;
+    width: 100%;
+    background: #e0f6f8';
+}
+#content2:after{
+    content: '';
+    clear: both;
+    display: block;
+}
+.con2{
+    width: 1200px;
+    height: 350px;
+    margin: 0 auto;
+    border-top: 2px solid #0055a2;
+    overflow: hidden;
+}
+.con2 h2{
+    font-size: 30px;
+    color: #0055a2;
+    text-align: center;
+    line-height: 80px;
+}
+.con2 .listWrap{
+    width: 285px;
+    height: 197px;
+    float: left;
+    text-align: center;
+    margin-right: 20px;
+    /* border: 1px solid #f00; */
+}
+.con2 .listWrap:last-of-type{
+    margin-right: 0;
+}
+.listWrap .list{
+    width: 285px;
+    height: 197px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.listWrap .list1{
+    background-image: url(../img/con21.png);
+}
+.listWrap .list2{
+    background-image: url(../img/con22.jpg);
+}
+.listWrap .list3{
+    background-image: url(../img/con23.jpg);
+}
+.listWrap .list4{
+    background-image: url(../img/con24.jpg);
+}
+.listWrap .tit{
+
+}
+.listWrap p{
+
 }
