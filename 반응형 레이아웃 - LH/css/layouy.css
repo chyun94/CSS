@@ -465,7 +465,7 @@ width: 270px;height: 280px;
 #content2{
     clear: both;
     width: 100%;
-    background: #e0f6f8';
+    background: #cef2f5;
 }
 #content2:after{
     content: '';
@@ -504,6 +504,7 @@ width: 270px;height: 280px;
     background-size: 100% 100%;
     transition: all 0.5s;
     cursor: pointer;
+    display: block;
 }
 .listWrap .list1{
     background-image: url(../img/con21.png);
@@ -517,9 +518,175 @@ width: 270px;height: 280px;
 .listWrap .list4{
     background-image: url(../img/con24.jpg);
 }
+.listWrap .list:hover{
+    background-size: 110% 110%;
+}
 .listWrap .tit{
-
+    font-size: 16px;
+    margin-top: 10px;
 }
 .listWrap p{
+    font-size: 12px;
+    letter-spacing: -0.8;
+    margin-top: 8px;
+}
+/* footer */
+#ft{
+    width: 100%;
+    background: #011e38;
+}
+.sitemap{
+    width: 1200px;
+    height: 160px;
+    margin: 0 auto;
+    position: relative;
+}
+.sitemap ul{
+    float: left;
+    width: 160px;
+    margin-top: 10px;
+}
+.sitemap ul li{
+    font-size: 14px;
+    color: #a8afb5;
+}
+.sitemap ul li.sitemap_tit{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.sitemap ul li a{
+    font-size: 12px;
+    color: #a8afb5;
+}
+.sitemap .sns{
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+.sitemap .sns li{
+    float: left;
+    margin-right: 14px;
+}
+.sitemap .sns li a{
+    display: block;
+    transition: all 0.5s;
+    /* 밝기 조절 필터 */
+    filter: brightness(0.7);
+}
+.sitemap .sns li a:hover{
+    filter: brightness(1);
+}
+.copyright{
+    width: 1200px;
+    height: 90px;
+    margin: 0 auto;
+    position: relative;
+}
+.copyright h2{
+    position: absolute;
+    left: 0;
+    top: 14px;
+}
+.copyright address{
+    position: absolute;
+    left: 240px;
+    top: 20px;
+    color: #888;
+    width: 670px;
+    font-size: 12px;
+    font-style: normal;
+}
+.copyright address a{
+    color: #ffcc00;
 
+}
+.copyright select{
+    position: absolute;
+    right: 0;
+    top: 20px;
+    background: transparent;
+    color: #a8afb5;
+    font-size: 12px;
+    padding: 3px;
+    border: 1px solid #a8afb5;
+    padding-left: 10px;
+}
+/* nav mobile */
+.none{
+    /* 라디오 버튼 숨김 */
+    display: none;
+}
+.toggle_btn{
+    background: url(../img/btnMenu.png) no-repeat;
+    width: 30px;
+    height: 30px;
+    display: block;
+    background-size: contain;
+    text-indent: -9999px;
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    display: none;
+}
+/* gnbmo */
+#gnbMo{position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(255,155,38,0.8);
+    width: 80%;
+    /* height: 100%;  top0과 bottom0은 height 100%와 같은 값이다*/
+    z-index: 100;
+    transition: all 0.6s;
+}
+#gnbMo label{
+    position: absolute;
+    right: -50px;
+    top: 20px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255,155,38,0.8);
+    background-image: url(../img/close_btn.png);
+    background-repeat: no-repeat;
+    background-size: 40px;
+    background-position: center center;
+    text-indent: -9999px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0px;
+}
+#gnbMo ul{
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    left: calc(50% - 100px);
+    top: calc(50% - 150px);
+    /* line-height: 300px; 이건 글자만 가능 박스이기때문에 사용 ㄴㄴ*/
+    transition: all 0.6s;
+    /* border: 1px solid blue; */
+}
+#gnbMo ul a{
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    color: #333;
+    border-bottom: 1px solid #bbb;
+    transition: all 0.6s;
+    text-align: center;
+    font-weight: bold;
+}
+#gnbMo ul a:hover, #gnbMo ul a:active{
+    color: #fff;
+    transform: scale(1.2);
+    border-bottom: 1px solid #fff;
+}
+/* open버튼을 누를 경우 */
+#toggle1:checked ~ #gnbMo{
+    left: 0;
+}
+/* close버튼을 누를 경우 */
+#toggle2:checked ~ #gnbMo{
+    left: -100%;
 }
