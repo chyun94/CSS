@@ -1,0 +1,932 @@
+@charset "UTF-8";
+/* GNB */
+
+body{
+    width: 100%;
+}
+#hd{
+    width: 1200px;
+    height: 80px;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    /* absolute와 margin auto는 먹히지 않아서 직접 바꿔줘야 한다 */
+    /* margin: 0 auto; */
+    left: calc(50% - 600px);
+    z-index: 10;
+    /* 부드럽게 이동하기 위함 */
+    transition: all 0.5s;
+    overflow: hidden;
+}
+.logo{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transition: all 0.5s;
+
+}
+#gnb{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+/* #gnb ul{
+
+} */
+#gnb ul li{
+    float: left;
+    padding: 25px 40px;
+    /* background: #ccc; */
+}
+#gnb ul li a{
+    font-size: 18px;
+    /* background: #aaa; */
+    display: block;
+    height: 80px;
+    font-weight: bold;
+    border-top: 2px solid transparent;
+    padding: 5px 10px;
+    transition: all 0.5s;
+}
+#gnb ul li a:hover{
+    border-top: 2px solid #0381bc;
+    color: #0381bc;
+
+}
+
+/* visual */
+#visual{
+    position: relative;
+    width: 100%;
+    height: 650px;
+    transition:  all 0.5s;
+    background-image: url(../img/visual2.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: wheat;
+    background-position: center center;
+}
+.v_wrap{
+    width: 1200px;
+    height: 650px;
+    /* background: #ffc; */
+    margin: 0 auto;
+    position: relative;
+}
+.txtBox{
+    /* 부모 안에서 움직여야 하기 때문에 */
+    position: absolute;
+    top: 200px;
+    width: 450px;
+    height: 295px;
+    background-image: url(../img/visuals1.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: left center;
+    transition:  all 0.5s;
+}
+.txtBox h2{
+    font-size: 20px;
+    color: #fff;
+    padding: 40px 0 3px 40px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
+}
+.txtBox p{
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
+    padding: 20px 0 10px 40px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+}
+.txtBox h3{
+    font-size: 18px;
+    color: #ff9b26;
+    padding: 30px 0 10px 40px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+}
+.txtBox select{
+    margin: 30px 0 0 40px;
+    width: 200px;
+    height: 40px;
+    border: 2px solid #fff;
+    background-color: transparent;
+    padding: 3px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+.txtBox select option{
+    color: #454545;
+}
+
+/* content1 */
+#content1{
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+#content1::after{
+    clear: both;
+    content: '';
+    display: block;
+}
+#content1 > div{
+    padding: 5px;
+    transition: all 0.5s;
+    /* border: 1px solid #f00; */
+    float: left;
+}
+#content1 > div > div{
+    padding: 5px;
+    transition: all 0.5s;
+    border: 1px solid #c7c6c6;
+    width: 100%;
+    height: 100%;
+}
+.application, .parcel, .information{
+    width: 220px;
+    height: 190px;
+    float: left;
+}
+.application > div, .parcel > div, .information > div{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center center;
+}
+.application > div{
+    background-image: url(../img/picBox1.png);
+}
+.parcel > div{
+    background-image: url(../img/picBox2.png);
+}
+.information > div{
+    background-image: url(../img/picBox3.png);
+}
+.application h3, .parcel h3, .information h3{
+    color: #fff;
+    font-weight: 600;
+    font-style: 18px;
+    padding: 10px 10px 5px 10px;
+}
+.application p, .parcel p, .information p {
+    color: #fff;
+    font-size: 13px;
+    padding-left: 10px;
+    padding-top: 4px;
+}
+.application a, .parcel a, .information a{
+    display: block;
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 26px;
+    height: 26px;
+    transition: all 0.5s;
+    transform: scale(1);
+}
+.application a img, .parcel a img, .information a img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.application a:hover, .parcel a:hover, .information a:hover{
+    transform: scale(1.3);
+}
+
+/* Notice */
+.notice{
+    width: 540px;
+    height: 190px;
+    /* float: left; */
+}
+.notice > div{
+    /* !important는 선택자 적용 1순위 */
+    border: none !important;
+    background-image: url(../img/newspaper.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 100px;
+    /* 위 좌우 아래 */
+    padding: 10px 15px 20px ;
+}
+.notice > div h2{
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+/* table */
+.notice > div > ul{
+    display: table;
+    /* border: 1px solid blue; */
+    width: 80%;
+}
+/* tr */
+.notice > div > ul li{
+    font-size: 12px;
+    padding: 12px 0;
+}
+/* td */
+.notice > div > ul li a{
+    width: 75%;
+    /* border: 1px solid rgb(33, 33, 110); */
+    display: block;
+    float: left;
+    /* text ... 표시 방법 3가지는 같이 써야함*/
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+/* 
+    너비를 먼저 정한 후 사용해야 한다.
+    white-space: nowrap;
+    text-overflow: ellipsis;/clip 글씨 잘림
+    overflow: hidden;
+*/
+/* td */
+.notice > div > ul li span{
+    width: 20%;
+    font-size: 11px;
+    /* border: 1px solid rgb(196, 42, 101); */
+    display: block;
+    float: left;
+    font-weight: bold;
+}
+.notice > div > ul li a:hover{
+    font-weight: bold;
+    color: #ff6f52;
+}
+/* 콜센터 */
+.call{
+    width: 220px;
+    height: 280px;
+    /* float: left; */
+    text-align: center;
+}
+.call h3{
+    margin: 10px 5px;
+    font-size: 16px;
+    width: 100%;
+    /* block는 넓이를 100%를 해주는 것과 같다 */
+    display: block;
+}
+.call span{
+    width: 100%;
+    /* background: #ccc; */
+    font-size: 24px;
+    font-weight: bold;
+    color: #ef7b15;
+}
+.call ul{
+    width: 100%;
+    /* background: #ccc; */
+}
+.call ul li{
+    margin: 10px auto;
+    opacity: 1;
+    transition: all 0.5s;
+    width: 96%;
+}
+
+.call ul li a{
+    display: block;
+    width: 190px;
+    height: 54px;
+    line-height: 54px;
+    /* border: 1px solid #00f; */
+    background-repeat: no-repeat;
+    background-size: 100% 54px;
+    background-position: center center;
+}
+.call ul li:nth-of-type(1) a{
+    background: url(../img/btn51.png);
+}
+.call ul li:nth-of-type(2) a{
+    background: url(../img/btn52.png);
+}
+.call ul li:nth-of-type(3) a{
+    background: url(../img/btn53.png);
+}
+.call ul li:hover{
+    opacity: 0.6;
+}
+.call span img{
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
+}
+/* 아이콘 버튼6개 */
+.icon_btn{
+    width: 440px;
+    height: 280px;
+}
+.icon_btn ul{
+    width: 100%;
+    height: 100%;
+}
+.icon_btn ul li{
+    float: left;
+    width: 33.3333%;
+    height: 50%;
+    text-align: center;
+    /* border: 1px solid#00f; */
+    padding-top: 25px;
+}
+.icon_btn ul li a{
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.5s;
+}
+.icon_btn ul li a img{
+    width: 70px;
+    transform: scale(1);
+    transition: all 0.5s;
+}
+.icon_btn ul li a:hover, .icon_btn ul li a:active{
+/* active는 누르는 순간 */
+    font-size: 15px;
+    color: #ef7b15;
+}
+.icon_btn ul li a:hover img, .icon_btn ul li a:active img{
+    transform: scale(1.13);
+    transition: all 0.5s;
+}
+/* LH 청약센터 */
+.center{
+width: 270px;height: 280px;
+}
+.center a{
+    display: block;
+    height: 100%;
+    background-image: url(../img/lhbg1.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: right bottom;
+    background: 1px solid #c7c6c6;
+    background-color: #e9ebf0;
+    padding-top: 30px;
+    text-align: center;
+}
+.center a h3{
+    color: #454545;
+    font-size: 20px;
+}
+.center a p{
+    padding: 10px;
+    color: #454545;
+    font-size: 12px;
+}
+/* 분양공고검색 */
+.bulletin{
+    width: 270px;height: 280px;
+    text-align: center;
+}
+.bulletin h3{
+    /* display: block; */
+    padding-top: 30px;
+    color: #454545;
+    font-size: 20px;
+}
+.bulletin form{
+    width: 80%;
+    height: 30px;
+    border: 1.6px solid blue;
+    border-radius: 20px;
+    /* 가운데 정렬 */
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-left: 5px;
+}
+.bulletin form input{
+    display: block;
+    border: none;
+    float: left;
+    background-color: transparent;
+}
+.bulletin form .search_box{
+    width: 80%;
+    height: 30px;
+    margin-left: 10px;
+    /* text-indent: 10px;  ml10px 대신 이렇게 해도 무관*/
+}
+.bulletin form .search_btn{
+    /* float: right; */
+    width: 20px;
+    height: 20px;
+    background-image: url(../img/search.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: center;
+    text-indent: -9999px;
+    color: #454545;
+    margin-top: 3px;
+}
+.bulletin h4{
+    padding-top: 50px;
+    text-align: center;
+    font-size: 15px;
+    color: #454545;
+}
+.bulletin h4 span{
+    color: #f00;
+}
+.bulletin ul{
+    margin-top: 20px;
+}
+.bulletin ul li{
+    float: left;
+    width: 33.3333%;
+    text-align: center;
+}
+.bulletin ul li a{
+    display: block;
+}
+.banner{
+    clear: both;
+    width: 1200px;
+    height: 110px;
+}
+/* banner */
+.banner{
+    clear: both;
+    width: 1200px;
+    height: 110px;
+    border-bottom: 2px solid #0055a2;
+}
+.banner > div{
+    border: none !important;
+}
+.banner ul{
+    width: 100%;
+    overflow: hidden;
+}
+.banner ul li {
+    float: left;
+    width: 16.6667%;
+    height: 82px;
+    text-align: center;
+}
+/* content2 */
+#content2{
+    clear: both;
+    width: 100%;
+    background: #cef2f5;
+}
+#content2:after{
+    content: '';
+    clear: both;
+    display: block;
+}
+.con2{
+    width: 1200px;
+    height: 350px;
+    margin: 0 auto;
+    border-top: 2px solid #0055a2;
+    overflow: hidden;
+}
+.con2 h2{
+    font-size: 30px;
+    color: #0055a2;
+    text-align: center;
+    line-height: 80px;
+}
+.con2 .listWrap{
+    width: 285px;
+    height: 197px;
+    float: left;
+    text-align: center;
+    margin-right: 20px;
+    /* border: 1px solid #f00; */
+}
+.con2 .listWrap:last-of-type{
+    margin-right: 0;
+}
+.listWrap .list{
+    width: 285px;
+    height: 197px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+    transition: all 0.5s;
+    cursor: pointer;
+    display: block;
+}
+.listWrap .list1{
+    background-image: url(../img/con21.png);
+}
+.listWrap .list2{
+    background-image: url(../img/con22.jpg);
+}
+.listWrap .list3{
+    background-image: url(../img/con23.jpg);
+}
+.listWrap .list4{
+    background-image: url(../img/con24.jpg);
+}
+.listWrap .list:hover{
+    background-size: 110% 110%;
+}
+.listWrap .tit{
+    font-size: 16px;
+    margin-top: 10px;
+}
+.listWrap p{
+    font-size: 12px;
+    letter-spacing: -0.8;
+    margin-top: 8px;
+}
+/* footer */
+#ft{
+    width: 100%;
+    background: #011e38;
+}
+.sitemap{
+    width: 1200px;
+    height: 160px;
+    margin: 0 auto;
+    position: relative;
+}
+.sitemap ul{
+    float: left;
+    width: 160px;
+    margin-top: 10px;
+}
+.sitemap ul li{
+    font-size: 14px;
+    color: #a8afb5;
+}
+.sitemap ul li.sitemap_tit{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.sitemap ul li a{
+    font-size: 12px;
+    color: #a8afb5;
+}
+.sitemap .sns{
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+.sitemap .sns li{
+    float: left;
+    margin-right: 14px;
+}
+.sitemap .sns li a{
+    display: block;
+    transition: all 0.5s;
+    /* 밝기 조절 필터 */
+    filter: brightness(0.7);
+}
+.sitemap .sns li a:hover{
+    filter: brightness(1);
+}
+.copyright{
+    width: 1200px;
+    height: 90px;
+    margin: 0 auto;
+    position: relative;
+}
+.copyright h2{
+    position: absolute;
+    left: 0;
+    top: 14px;
+}
+.copyright address{
+    position: absolute;
+    left: 240px;
+    top: 20px;
+    color: #888;
+    width: 670px;
+    font-size: 12px;
+    font-style: normal;
+}
+.copyright address a{
+    color: #ffcc00;
+
+}
+.copyright select{
+    position: absolute;
+    right: 0;
+    top: 20px;
+    background: transparent;
+    color: #a8afb5;
+    font-size: 12px;
+    padding: 3px;
+    border: 1px solid #a8afb5;
+    padding-left: 10px;
+}
+/* nav mobile */
+.none{
+    /* 라디오 버튼 숨김 */
+    display: none;
+}
+.toggle_btn{
+    background: url(../img/btnMenu.png) no-repeat;
+    width: 30px;
+    height: 30px;
+    display: block;
+    background-size: contain;
+    text-indent: -9999px;
+    position: absolute;
+    left: 10px;
+    top: 20px;
+    display: none;
+}
+/* gnbmo */
+#gnbMo{position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(255,155,38,0.8);
+    width: 80%;
+    /* height: 100%;  top0과 bottom0은 height 100%와 같은 값이다*/
+    z-index: 100;
+    transition: all 0.6s;
+}
+#gnbMo label{
+    position: absolute;
+    right: -50px;
+    top: 20px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255,155,38,0.8);
+    background-image: url(../img/close_btn.png);
+    background-repeat: no-repeat;
+    background-size: 40px;
+    background-position: center center;
+    text-indent: -9999px;
+    cursor: pointer;
+    border-radius: 0 5px 5px 0px;
+}
+#gnbMo ul{
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    left: calc(50% - 100px);
+    top: calc(50% - 150px);
+    /* line-height: 300px; 이건 글자만 가능 박스이기때문에 사용 ㄴㄴ*/
+    transition: all 0.6s;
+    /* border: 1px solid blue; */
+}
+#gnbMo ul a{
+    display: block;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    color: #333;
+    border-bottom: 1px solid #bbb;
+    transition: all 0.6s;
+    text-align: center;
+    font-weight: bold;
+}
+#gnbMo ul a:hover, #gnbMo ul a:active{
+    color: #fff;
+    transform: scale(1.2);
+    border-bottom: 1px solid #fff;
+}
+/* open버튼을 누를 경우 */
+#toggle1:checked ~ #gnbMo{
+    left: 0;
+}
+/* close버튼을 누를 경우 */
+#toggle2:checked ~ #gnbMo{
+    left: -100%;
+}
+/* @media 단말기종류 and (조건1:너비,가로,세로) and (조건2) {
+    실행문
+} 
+screen:pc,태블릿,모바일
+*/
+
+@media screen and (min-width:640px) and (max-width:1199px) {/* 태블릿 */
+    #hd{
+        width: 100%;
+        height: 60px;
+        position: relative;
+        top: 0;
+        left: 0;   
+    }
+    .logo{
+        position: relative;
+        top: 10px;
+        left: 0;
+        text-align: center;
+    }
+    .logo a img{
+        width: 100px;
+        height: auto;
+    }
+    #gnb{
+        display: none;
+    }
+    .toggle_btn{
+        display: block;
+        top: 15px;
+    }
+    
+    /* visual */
+    #visual{
+        width: 100%;
+        height: 350px;
+    }
+    .v_wrap{
+        width: 100%;
+        height: 350px;
+    }
+    .txtBox{
+        top: 50px;
+        left: 40px; 
+        width: 300px;
+        height: 200px;
+    }
+    .txtBox h2{
+        font-size: 18px;
+        padding: 20px 0 3px 20px;
+    }
+    .txtBox p{
+        font-size: 13px;
+        padding: 20px 0 10px 20px;
+    }
+    .txtBox h3{
+        font-size: 14px;
+        padding: 20px 0 10px 20px;
+    }
+    .txtBox select{
+        margin: 10px 0 0 20px;
+        width: 150px;
+        height: 30px;
+        padding: 3px;
+        font-size: 12px;
+        color: #ddd;
+    }
+    .txtBox select option{
+        color: #454545;
+    }
+    
+    /* content1 */
+    #content1{
+        width: 100%;
+        overflow: hidden;
+    }
+    .application, .parcel, .information{
+        width: 33.33333%;
+    }
+    .application > div, .parcel > div, .information > div{
+        background-size: cover
+    }
+    .application > div{
+        background-color: #2994c6 ;
+    }
+    .parcel > div{
+        background-color: #26aa7d ;
+    }
+    .information > div{
+        background-color: #ff9b26 ;
+    }
+    .application h3, .parcel h3, .information h3{
+        font-size: 14px;
+    }
+    .application p, .parcel p, .information p{
+        font-size: 12px;
+    }
+    .application a, .parcel a, .information a{}
+    .application a img, .parcel a img, .information a img{
+        margin-top: 10px; 
+        width: 100%;
+        height: 100%;
+    }
+    
+    /* 공지사항 */
+    .notice{
+        clear:both;
+        float:none;
+        width: 100%;
+        height: 190px;
+    }
+    .notice > div > ul{
+        width: 70%;
+        overflow: hidden;
+    }
+    /* table */
+    .notice > div > ul li{
+        padding: 10px 0;
+    }/* tr */
+    .notice > div > ul li span{display: none;}/* date */
+    
+    /* 콜센터 */
+    .call{width: 33.3333333%;height: 270px;}
+    .call h3{ margin: 5px 0px; }
+    
+    /* 아이콘 6개 */
+    .icon_btn{width: 66.6666666%;height: 270px;}
+    
+    /* lh청약센터 */
+    .center{width: 50%;height: 270px;}
+    .center a p{font-size: 12px;}
+    
+    /* 분양공고검색 */
+    .bulletin{width:50%;height: 270px;}
+    /* banner */
+    .banner{clear: both;width: 100%;height: 110px;}
+    .banner ul{width: 100%;overflow: hidden;}
+    .banner ul li{width: 25%;}
+    
+    /* content2 */
+    #content2{height: 580px;}
+    .con2{width: 100%;height: 100%;}
+    .con2 h2{font-size: 26px;line-height: 56px;}
+    .con2 .listWrap{width: 50%;height: auto;margin-right: 0;margin-bottom: 10px;}
+    .listWrap .list{width: 90%;height: 197px;}
+    .listWrap .tit{display: block;width: 100%;   font-size: 16px;margin-top: 10px;}
+    .listWrap p{font-size: 12px;letter-spacing: -0.8px;margin-top: 8px;}
+    
+    /* 푸터영역 */
+    #ft{width: 100%;height: 100px;}
+    .sitemap{display: none;}
+    
+    .copyright{width: 100%;}
+    .copyright h2{position: absolute;left: 10px;top: 30px;}
+    .copyright h2 img{display: block;    width: 100px;}
+    .copyright address{position: absolute;left: 130px;top: 40px;font-size: 11px;width: 75%;}
+    .copyright select{position: absolute;right: 30px;top: 15px;padding-left: 3px;} 
+    }
+    
+    @media screen and (max-width:639px) {/* 모바일 */
+        #hd{width: 100%;height: 60px;position: relative;top: 0;left: 0;   }
+        .logo{position: relative;top: 10px;left: 0;text-align: center;}
+        .logo a img{width: 100px;height: auto;}
+        #gnb{display: none;}
+        .toggle_btn{display: block;top: 15px;}
+        
+        /* visual */
+        #visual{width: 100%;height: 200px;}
+        .v_wrap{width: 100%;height: 200px;}
+        .txtBox{top: 50px;left: 30px; width: 200px;height: 130px;}
+        .txtBox h2{font-size: 13px;padding: 10px 0 3px 10px;}
+        .txtBox p{font-size: 12px;padding:10px 0 10px 10px;}
+        .txtBox h3{font-size: 13px;padding:10px 0 10px 10px;}
+        .txtBox select{margin: 0 0 0 10px;width: 140px;height: 24px;padding: 3px;font-size: 12px;}
+        .txtBox select option{color: #454545;}
+        
+        /* content1 */
+        #content1{width: 100%;overflow: hidden;}
+        .application, .parcel, .information{width: 33.33333%;height: 180px;}
+        .application > div, .parcel > div, .information > div{background-size: cover;background-position: right center;}
+        .application > div{background-color: #2994c6 ;}
+        .parcel > div{background-color: #26aa7d ;}
+        .information > div{background-color: #ff9b26 ;}
+        .application h3, .parcel h3, .information h3{font-size: 13px;}
+        .application p, .parcel p, .information p{font-size: 12px;}
+        .application a,.parcel a,.information a {margin-top: 5px;}
+        .application a img, .parcel a img, .information a img{margin-top: 5px; width: 100%;height: 100%;}
+        
+        /* 공지사항 */
+        .notice{clear:both;float:none;width: 100%;height: 190px;}
+        .notice > div > ul{width: 70%;overflow: hidden;}/* table */
+        .notice > div > ul li{padding: 10px 0;}/* tr */
+        .notice > div > ul li span{display: none;}/* date */
+        
+        /* 콜센터 */
+        .call{width: 100%;height: 270px;}
+        .call h3{ margin: 5px 0px; }
+        .call ul li a{ width: 100%;height: 54px;background-repeat: no-repeat; background-size: auto;}
+        /* 가운데로 정렬 */
+        
+        /* 아이콘 6개 */
+        .icon_btn{width: 100%;height: 270px;}
+        
+        /* lh청약센터 */
+        .center{width: 50%;height: 200px;}
+        .center a{padding-top: 10px;}
+        .center a h3{color: #454545;font-size: 15px;}
+        .center a p{font-size: 11px;padding: 5px;}
+        
+        /* 분양공고검색 */
+        .bulletin{width:50%;height: 200px;}
+        .bulletin h3{color: #454545;font-size: 15px;padding-top: 10px;}
+        .bulletin form {width: 90%;height: 24px;border: 1px solid #0381bc;margin: 0 auto;margin-top: 10px;border-radius: 20px;}
+        .bulletin form .search_box{width: 80%;height: 24px;/* margin-left: 5px; */ text-indent: 10px;  }
+        .bulletin form .search_btn{ width: 24px;height:24px; }
+        .bulletin h4{margin-top: 20px;font-size: 13px;}
+        .bulletin ul{margin-top: 10px;}
+    
+        /* banner */
+        .banner{display: none;}
+     
+        /* content2 */
+        #content2{height: auto;padding-bottom: 20px;}
+        .con2{width: 100%;height: 100%;}
+        .con2 h2{font-size: 22px;line-height: 40px;}
+        .con2 .listWrap{clear: both;  width: 100%;height: auto;margin-top: 10px;}
+        .listWrap .list{width: 90%;height: 180px;}
+        .listWrap .tit{display: block;width: 100%;   font-size: 15px;margin-top: 5px;}
+        .listWrap p{font-size: 11px;letter-spacing: -0.8px;margin-top: 5px;}
+        
+        /* 푸터영역 */
+        #ft{width: 100%;height: 150px;overflow: hidden;}
+        .sitemap{display: none;}
+        
+        .copyright{width: 100%;padding: 10px 0;}
+        .copyright h2{position: absolute;left: calc(50% - 50px);top: 10px;width: 100px;height: auto;}
+        .copyright h2 img{display: block;width: 100% ;}
+        .copyright address{position: absolute;left: 5%;top: 90px;font-size: 11px;width: 90%;}
+        .copyright select{position: absolute;left: calc(50% - 25%);top: 60px;padding-left: 3px;}  
+    }
