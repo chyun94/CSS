@@ -1,0 +1,226 @@
+/*게시판 영역*/
+.sec6_inner .board {
+    display:flex;
+    flex-wrap:wrap; 
+    justify-content:space-between;
+    margin-top:5rem;
+}
+.sec6_inner .board > div {
+    width:48%;
+}
+.sec6_inner .board .title_wrap:before {
+    top:2.2rem;
+}
+.sec6_inner .board .btn_more {
+    top:-1rem;
+}
+.sec6_inner .board ul {
+    margin-top:1rem;
+}
+.sec6_inner .board ul li {
+    border-bottom:1px dashed #eee;
+}
+.sec6_inner .board ul li a {
+    display:block;
+    padding:15px 3px;
+    color:#647671;
+    position:relative;
+}
+.sec6_inner .board ul li a:hover {
+    background:#f5f5f5;
+    color:#262626;
+}
+.sec6_inner .board ul li a span {
+    display:inline-block;
+    max-width:50%;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    margin:0 4px -2px 10px;
+    font-size:16px;
+}
+.sec6_inner .board ul li a:after {
+    content:'..';
+    letter-spacing:2px;
+    position:absolute;
+    right:1rem;
+    top:32%;
+}
+
+.sec6_inner .btn_reserve {
+    display:block;
+    border:1px solid #4c9280;
+    width:14rem;
+    height:3rem;
+    box-sizing:border-box;
+    text-align:center;
+    line-height:3rem;
+    font-size:1rem;
+    color:#4c9280;
+    margin:4rem auto 5rem;
+    transition:.4s;
+    transition-delay:0.2s;
+    position:relative;
+    overflow:hidden; 
+        
+}
+.sec6_inner .btn_reserve i {
+    display:inline-block;
+    width:29px;
+    height:11px;
+    background:url(../images/go_more_arrow.png) no-repeat -29px 0;
+    position:relative;
+    top:-3px;
+    margin-left:1rem;
+    transition:.4s;
+}
+.sec6_inner .btn_reserve:before {
+    content:'';
+    position:absolute;
+    left:-194%;
+    top:-1px;
+    width:180%;
+    height:200%;
+    background:#4c9280;
+    transform:skewX(-35deg);
+    z-index:-1;
+    transition:.6s;
+}
+.sec6_inner .btn_reserve:hover {
+    color:#fff;
+}
+.sec6_inner .btn_reserve:hover:before {
+    left:-30%;
+}
+.sec6_inner .btn_reserve:hover i {
+    background-position:0 0; 
+}
+
+
+/*footer 영역*/
+footer .site_map_wrap {
+    background:#262626;
+    
+}
+footer .site_map {
+    width:1200px;
+    margin:0 auto;
+    color:#fff;
+    padding:30px 0;
+}
+footer .site_map > ul {
+    display:flex;
+    flex-wrap:wrap;
+    border-left:1px solid #373838;
+    border-right:1px solid #373838;
+}
+footer .site_map > ul > li {
+    width:25%;
+    height:230px;
+    padding-left:30px;
+    box-sizing:border-box; 
+}
+footer .site_map > ul > li ~ li {
+    border-left:1px solid #373838;
+}
+footer .site_map > ul > li > strong {
+    font-weight:500;
+    font-size:18px;
+    color:#6bd4b9;
+}
+footer .site_map .site_map_inner {
+    margin-top:35px;
+}
+footer .site_map .site_map_inner li {
+    margin-bottom:20px; 
+}
+
+footer .site_map .site_map_inner li a {
+    color:#b3b3b3;
+    font-size:16px;
+    position:relative;
+}
+footer .site_map .site_map_inner li a:hover {
+    color:#fff;
+}
+footer .site_map .site_map_inner li a:before {
+    content:'';
+    height:1px;
+    width:0;
+    background:#fff;
+    position:absolute;
+    left:-30px;
+    top:50%;
+    transform:translateY(-50%);
+    overflow:hidden;
+    transition:0.3s;
+}
+footer .site_map .site_map_inner li a:hover:before {
+    width:12px;
+}
+
+footer .sns {
+    margin:2rem 0;
+}
+footer .sns ul {
+    display:flex;
+    justify-content:center; 
+}
+footer .sns ul li ~ li {
+    margin-left:20px;
+}
+footer .sns ul li:hover a img {
+    animation:ani .8s;
+}
+
+@keyframes ani {
+    0% {
+        transform:translateY(0);
+    }
+    50% {
+        transform:translateY(-15px);
+    }
+    100% {
+        transform:translateY(0);
+    }
+}
+
+.footer {
+    width:1200px;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    padding-bottom:3rem; 
+}
+.footer .footer_logo {
+    width:26%;
+}
+.footer address {
+    width:74%;
+    font-size:15px;
+    color:#626262;
+    font-weight:300; 
+}
+.footer address p {
+    line-height:1.8; 
+}
+.footer address p ~ p {
+    margin-top:20px;
+    font-size:14px; 
+}
+.footer address p em {
+    color:#262626;
+}
+.footer address p span {
+    color:#227a63;
+}
+.footer address p i {
+    display:inline-block;
+    width:1px;
+    height:13px;
+    background:#969696;
+    position:relative;
+    top:1px;
+    margin:0 8px;
+}
+
