@@ -7,42 +7,39 @@ body {
 header {
     width: 100%;
     height: 4rem;
-    /* 4rem*20px(html 폰트사이즈) = 80px를 높이로, rem은 상대값 */
+    /* 4*20=80px */
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     position: fixed;
     left: 0;
     top: 0;
     z-index: 100;
     display: flex;
-    /* 자식 요소 5개가 모두 가로로 쌓이게 */
     flex-direction: row;
-    /* 가로로 배열, 기본값이 row임 */
     justify-content: space-around;
-    /* 수평 정렬 */
+    /* 수평정렬 */
     align-items: center;
-    /* 수직 정렬 */
+    /* 수직정렬 */
 }
 
 header::before {
+    /* 서브메뉴 배경 */
     content: '';
     position: absolute;
     left: 0;
     right: 0;
-    /* left: 0;, right: 0; = 넓이가 100%라는 이야기 */
-    top: 4.1rem;
+    top: 3.95rem;
     background: rgba(0, 0, 0, 0.92);
     transition: 0.3s;
-    /* overflow: hidden; */
 }
 
 header.on::before {
-    /* .on 제이쿼리 활용을 위해 가상으로 만듬 */
-    height: 10.1rem;
+    /* .on 제이쿼리 활용하기 */
+    height: 10rem;
 }
 
 header:hover,
 header.bg {
-    /* .bg 제이쿼리 활용을 위해 가상으로 만듬 */
+    /* .bg 제이쿼리 활용  */
     background-color: rgba(255, 255, 255, 0.92);
 }
 
@@ -50,18 +47,19 @@ header .logo {}
 
 header .logo a {
     display: block;
-    /* 인라인요소를 블럭으로, 선택 영역을 더 넓게 잡을 수 있게 */
 }
 
+/* 인라인요소를 블럭으로 */
+
 header nav {
-    /* background: #666; */
-    /* margin-top: 70px; */
+    /*background: #ddd; margin-top: 70px; */
 }
 
 header nav>ul {
-    /* nav의 바로 밑 ul. outer를 의미 */
     display: flex;
     /* 자식요소를 가로로 배열 */
+
+
 }
 
 header nav>ul>li {
@@ -72,73 +70,69 @@ header nav>ul>li {
 header nav>ul>li>a {
     display: block;
     height: 3.95rem;
-    /* 4rem이 아닌 이유는 box-sizing 때문에 border값(1px)이 안으로 들어와서 79px의 가운데로 정렬 */
+    /* 79px */
     line-height: 3.95rem;
     color: #fff;
     font-size: 0.8rem;
+    /* 16px */
     padding: 0 2rem;
     position: relative;
-    /* 마우스 올렸을 때 위에 선 */
 }
 
-header nav>ul>li>a::before {
-    /* 초록색 선 */
+header nav>ul>li>a:before {
+    /* 초록색선 */
     display: block;
     content: '';
     position: absolute;
     top: 0;
     left: 50%;
-    /* 선 초기 위치를 가운데로 배치 */
+    /*  선 초기 위치를 가운데로 배치 */
     width: 0;
     height: 3px;
     background: #0f7258;
     transform: translateX(-50%);
-    /* 가운데에서 양옆으로 길게 애니메이션*/
+    /* 가운데에서 양옆으로 길게 애니메이션  */
     transition: 0.5s;
     overflow: hidden;
 }
 
-header nav>ul>li:hover>a::before {
+header nav>ul>li:hover>a:before {
     width: 70%;
-}
-
-header nav>ul>li>a:hover {
-    color: #555;
+    /* 초록색선 길이 */
 }
 
 header:hover nav>ul>li>a,
 /* 헤더에 마우스 오버시 */
-nav>ul>li:hover>a,
+header.bg nav>ul>li>a,
 /* 헤더 배경이 흰색일때 */
-header.bg nav>ul>li>a {
+nav>ul>li:hover>a {
     /* 대메뉴에 마우스 오버시 */
     color: #555;
 }
 
 .inner {
     /* 서브메뉴 */
-    display: none;
     position: absolute;
     left: 0;
-    top: 4.1rem;
+    top: 3.95rem;
     width: 100%;
     height: 9rem;
     text-align: center;
     padding-top: 1rem;
-    overflow: hidden;
+    display: none;
 }
 
 header nav>ul>li:hover>.inner {
     background-color: rgba(18, 20, 23, 1);
 }
 
-.inner>li>a {
-    display: block;
+.inner li a {
     color: #bfbebe;
+    display: block;
     padding: 10px 0;
 }
 
-.inner>li>a:hover {
+.inner li a:hover {
     color: #fff;
 }
 
@@ -153,8 +147,6 @@ header .sns_wrap ul {
 header .sns_wrap ul li {
     width: 33.3333%;
     height: 3.95rem;
-    /* = 79px */
-    /* border: 1px solid red; */
 }
 
 header .sns_wrap ul li a {
@@ -163,7 +155,6 @@ header .sns_wrap ul li a {
     height: 100%;
     background-repeat: no-repeat;
     background-position: center calc(50%);
-    /* 높이의 50% */
     transition: 0.5s;
 }
 
@@ -171,6 +162,7 @@ header .sns_wrap ul li:nth-child(1) a {
     background-image: url(../images/sns_icon01.png);
 }
 
+/* ../ 상위 폴더에 있는 */
 header .sns_wrap ul li:nth-child(2) a {
     background-image: url(../images/sns_icon02.png);
 }
@@ -181,7 +173,6 @@ header .sns_wrap ul li:nth-child(3) a {
 
 header .sns_wrap ul li a:hover {
     background-position: center calc(50% - 10px);
-    /* 위로 10px만 움직이게 */
 }
 
 header .menu {
@@ -190,9 +181,7 @@ header .menu {
 
 header .reserve {
     width: 11.55rem;
-    /* 231px */
     height: 4rem;
-    /* 80px */
     background: url(../images/btn_bg.jpg) no-repeat 100% 0;
     transition: 0.5s;
 }
@@ -214,12 +203,12 @@ header .reserve:hover {
     background-position: 0 0;
 }
 
-/* 비디오 영역 */
+/*  비디오 영역 */
 .sec1 {
     min-height: 32.5rem;
-    /* 최소 사이즈 650px */
+    /* 650px */
     height: 100vh;
-    /* 보고있는 단말기 높이값 전체를 활용한 viewport height. */
+    /*  100 viewport height */
     position: relative;
 }
 
@@ -227,7 +216,7 @@ header .reserve:hover {
     position: absolute;
     left: 0;
     right: 0;
-    /* widht값 100% */
+    /*  w:100% */
     top: 0;
     overflow: hidden;
     z-index: -1;
@@ -242,7 +231,6 @@ header .reserve:hover {
     top: 50%;
     text-align: center;
     transform: translate(-50%, -50%);
-    /* 내 전체 박스사이즈 넓이 반만큼 왼쪽으로, 높이만큼 위로 올라가는 */
 }
 
 .main_text span,
@@ -262,7 +250,6 @@ header .reserve:hover {
     margin-top: 1rem;
 }
 
-/* 고스트 버튼 a 신청하기 */
 .main_text a {
     display: inline-block;
     border: 1px solid #fff;
@@ -270,29 +257,29 @@ header .reserve:hover {
     margin-top: 1.3rem;
     padding: 0.85rem 2.7rem;
     font-size: 1.1rem;
-    font-weight: normal;
+    font-weight: 500;
     transition: 0.4s;
-    animation-delay: 0.2s;
+    transition-delay: 0.2s;
     position: relative;
     overflow: hidden;
 }
 
-.main_text a::before {
+.main_text a:before {
+    /* 사선박스 만들기 */
     content: '';
     position: absolute;
     left: -170%;
     top: -1rem;
-    width: 150%;
-    height: 160%;
-    background-color: #fff;
+    width: 160%;
+    height: 150%;
+    background: #fff;
     z-index: -1;
-    transform: skew(-30deg);
+    transform: skewX(-30deg);
     transition: 0.6s;
 }
 
 .main_text a:hover:before {
     left: -2rem;
-    /* 0으로 하면 왼쪽 상단이 잘 안가려짐 */
 }
 
 .main_text a:hover {
@@ -306,7 +293,6 @@ header .reserve:hover {
     background: url(../images/more_arrow.png) no-repeat -29px 0;
     position: relative;
     top: -4px;
-    left: 20px;
     transition: 0.4s;
     transition-delay: 0.2s;
 }
@@ -315,12 +301,12 @@ header .reserve:hover {
     background-position: 0 0;
 }
 
-/* icon */
 .icon {
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%); /* 박스가 가운데 배치, -600px만큼 이동 */
+    transform: translateX(-50%);
+    /* 박스가 가운데 배치 -600px */
     width: 1200px;
 }
 
@@ -330,7 +316,8 @@ header .reserve:hover {
 }
 
 .icon ul li {
-    flex: 1; /* flex-grow 늘어남, flex-shink 줄어듬, flex-basis 만든만큼 그대로 / flex: 1 0 0; flex-grow만 먹힌거. 화면 부모사이즈에 딱 맞게 늘어났다. */
+    flex: 1;
+    /* flex-grow,flex-shirink,flex-basis    flex: 1 0 0 부모사이즈에 맞게 늘어남 */
     text-align: center;
 }
 
@@ -350,10 +337,12 @@ header .reserve:hover {
     width: 45%;
     height: 3px;
     transform: translateX(-50%);
-    background-color: #0f7258;
+    background: #0f7258;
     transition: 0.4s;
-    opacity: 0; /* 초록선 안보이게, 나중에 애니메이션으로 부드럽게 보이게 처리하기 위해서 */
+    opacity: 0;
+    /* 초록선  안보이게, 나중에 애니메이션으로 부드럽게 보이게 */
 }
+
 .icon ul li a::before {
     top: 0;
 }
@@ -363,7 +352,7 @@ header .reserve:hover {
 }
 
 .icon ul li a:hover:before,
-.icon ul li a:hover:after {
+.icon ul li a:hover::after {
     opacity: 1;
 }
 
@@ -405,37 +394,46 @@ header .reserve:hover {
     font-size: 15px;
     margin-top: 10px;
 }
+
 .icon ul li a:hover {
     background: rgba(255, 255, 255, 0.9);
     color: #0f7258;
 }
+
 .icon ul li a:hover span {
     background-position: -50px 0;
 }
-/* sec3, our service */
+
+/* sec2, our service */
 .sec2 {
     padding-top: 6rem;
 }
+
 .sec2 .title {
     position: relative;
     top: 40px;
     opacity: 0;
     transition: 0.6s;
 }
-.sec2 .title.on { /* 제이쿼리 활용 */
+
+.sec2 .title.on {
+    /* 제이쿼리 활용 */
     top: 0;
     opacity: 1;
 }
+
 .sec2 .subTitle {
     position: relative;
     top: 40px;
     opacity: 0;
     transition: 0.6s;
 }
+
 .sec2 .subTitle.on {
     top: 0;
     opacity: 1;
 }
+
 .service {
     width: 1200px;
     margin: 50px auto 0;
@@ -445,24 +443,31 @@ header .reserve:hover {
     transition: 0.6s;
     transition-delay: 0.2s;
 }
+
 .service.on {
     top: 0;
     opacity: 1;
 }
+
 .service ul {
-    display: flex; /* 자식요소 가로로 쌓이게 */
-    justify-content: space-between; /* 양쪽정렬 : 등분간격 */
+    display: flex;
+    /* 자식요소를 가로로 쌓이게 */
+    justify-content: space-between;
+    /* 양쪽정렬:등분간격 */
 }
-.service ul li{
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.08);
+
+.service ul li {
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, .08);
 }
-.service ul li a{ /* 글씨가 이미지위에 얹히기 위해 */
+
+.service ul li a {
     display: block;
     position: relative;
     background: #0f7258;
-    overflow: hidden; /* .ser_text 부모인 a에 overflow : hidden */
+    overflow: hidden;
 }
-.service ul a .ser_text{
+
+.service ul li a .ser_text {
     position: absolute;
     left: 0;
     right: 0;
@@ -471,22 +476,26 @@ header .reserve:hover {
     z-index: 10;
     padding: 1.5rem 0 1.5rem 1.5rem;
 }
-.service ul a .ser_text strong{
-    font-size: 1.4rem;
-    font-weight: normal;
+
+.service ul li a .ser_text strong {
+    font-size: 1.3rem;
+    font-weight: 500;
     display: block;
     margin-bottom: 10px;
 }
-.service ul a .ser_text p{
+
+.service ul li a .ser_text p {
     line-height: 1.5;
-    font-style: 0.9rem;
+    font-size: 0.9rem;
     font-weight: 300;
     color: #bcbcbc;
 }
-.service ul a:hover img {
+
+.service ul li a:hover img {
     opacity: 0.8;
 }
-.service ul a .ser_text::before {
+
+.service ul li a .ser_text:before {
     content: '';
     width: 100%;
     height: 100%;
@@ -494,90 +503,102 @@ header .reserve:hover {
     left: -100%;
     bottom: 0;
     z-index: -1;
-    background: url(../images/ser_textbg.png) no-repeat 100% 100%/ cover ;
+    background: url(../images/ser_textbg.png) no-repeat 100% 100%/cover;
     transition: 0.5s;
 }
-.service ul li a:hover .ser_text::before {
+
+.service ul li a:hover .ser_text:before {
     left: 0;
 }
-/* expert */
-.sec3{
+
+/* EXPERT 영역 */
+.sec3 {
     padding-top: 8rem;
-    /* 자손중 누군가가 absolute를 할 거여서 relative를 준다 */
     position: relative;
 }
-.sec3:before{
+
+.sec3:before {
     content: '';
     position: absolute;
     right: 0;
     top: 0;
     width: 0;
-}
-.sec3.on:before{
-    width: 100%;
     height: 2200px;
-    /* 100% 0 , 100% x축 0은 y축 */
-    background: url(../images/expert_bg.png) no-repeat 100% 0;
+    background: url(../images/expert_bg.png) no-repeat 100% 0/cover;
+    transition: 2s;
+    z-index: -1;
 }
-.sec3_inner{
+
+.sec3.on:before {
+    width: 100%;
+}
+
+.sec3_inner {
     width: 1200px;
     margin: 0 auto;
 }
-.sec3 .title{
-    text-align: left;
-    position: relative;
-    top: 20px;
-    opacity: 0;
-    transition: 0.5s;
-}
-.sec3 .subTitle{
-    text-align: left;
-    position: relative;
-    top: 20px;
-    opacity: 0;
-    transition: 0.5s;
 
-}
-.sec3 .expert{
-    margin-top: 2rem;
+.sec3 .title {
+    text-align: left;
     position: relative;
     top: 20px;
     opacity: 0;
     transition: 0.5s;
+}
+
+.sec3 .subTitle {
+    text-align: left;
+    position: relative;
+    top: 20px;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.sec3 .expert {/* ul */
+    margin-top: 2rem;
     display: flex;
     justify-content: space-between;
+    position: relative;
+    top: 20px;
+    opacity: 0;
+    transition: 0.5s;
 }
-.sec3 .title.on, .sec3 .subTitle.on .sec3 .expert.on{
+
+.sec3 .title.on,
+.sec3 .subTitle.on,
+.sec3 .expert.on {
     top: 0;
     opacity: 1;
 }
-.sec3 .expert li{
-    width: 48%;
+
+.sec3 .expert li {
+    width: 48%;      
 }
 .sec3 .expert li a{
     display: block;
     position: relative;
-    box-shadow: 10px 10px 10px rgba(0, 0,0 ,0.8);
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.8);
     overflow: hidden;
 }
-.sec3 .expert li a text{
+.sec3 .expert li a img{
+    width: 100%;
+    transition: 0.5s;
+    /* transform: scale(1.0); */
+}
+.sec3 .expert li a .text{
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 0;right: 0;
     bottom: 0;
     color: #fff;
     background: rgba(33,33,33,0.3);
     padding: 1.5rem 0 1.5rem 2.2rem;
     transition: 0.3s;
 }
-.sec3 .expert li a text::before{
-    /* 세로라인 */
+.sec3 .expert li a .text::before{/* 세로라인 */
     content: '';
+    position: absolute;top: 0;left: 1.1rem;
     width: 3px;
     height: 80%;
-    position: absolute;
-    top: 0;
-    left: 0;
     background: #fff;
 }
 .sec3 .expert li a .text span{
@@ -586,13 +607,9 @@ header .reserve:hover {
     font-weight: 300;
     margin-bottom: 10px;
 }
-.sec3 .expert li a.text strong{
+.sec3 .expert li a .text strong{
     font-size: 1.2rem;
     font-weight: 400;
-}
-.sec3 .expert li a img{
-    width: 100%;
-    transition: 0.5s;
 }
 .sec3 .expert li a:hover img{
     transform: scale(1.1);
@@ -600,34 +617,8 @@ header .reserve:hover {
 .sec3 .expert li a:hover .text{
     background: rgba(15,114,88,0.7);
 }
-.homeCheck{
-    display: flex;
-    margin-top: 2rem;
-}
-.homeCheck .text{
-    width: 40%;
-    text-align: center;
-}
-.homeCheck .img{
-    width: 60%;
-    position: relative;
-    box-shadow: 10px 10px 10px rgba(0,0,0,0.08);
-    overflow: hidden;
-}
-.homeCheck .img img{
-    width: 100%;
-    transform: scale(1.1);
-}
-.homeCheck .img .play_btn{
-    width: 5rem;
-    height: 5rem;
-    /* 50% 50% 는 center과 같다 /100%는 사이즈 값이다. */
-    background: url(../images/video_play.png) no-repeat 50% 50%/100%;
-    position:absolute;
-    top: 50%;
-    left: 50%;
-    cursor: pointer;
-}
+.homeCheck{display: flex;margin-top: 2rem; border: 1px solid #f00    ;}
+.homeCheck .text{width: 40%;align-self: center;}
 .homeCheck .text .homeCheck_title{
     color: #fff;
     text-transform: uppercase;
@@ -636,20 +627,33 @@ header .reserve:hover {
     margin-bottom: 3rem;
     position: relative;
 }
-.homeCheck .text .homeCheck_title::after{
-    /* line 라인 */
-    content: '';
-    position: relative;
-    left: -1rem;
-    bottom: -1rem;
-    width: 110%;
-    height: 1px;
-    background: #fff;
-    z-index: 2;
+.homeCheck .text .homeCheck_title:after{/* 라인 */
+  content: '';
+  position: absolute;
+  left: -1rem;
+  bottom:-1rem;
+  width: 110%;height: 1px;
+  background: #fff;z-index: 2;
 }
 .homeCheck .text p{
     color: #b6e7da;
     line-height: 2;
     font-size: 1rem;
     font-weight: 300;
+}
+
+.homeCheck .img{
+  width: 60%;
+  position: relative;
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+.homeCheck .img img{width: 100%;transition: 0.5s;}
+.homeCheck .img:hover img{transform: scale(1.1);}
+.homeCheck .img .play_btn{
+    width: 5rem;height: 5rem;
+    background:url(../images/video_play.png) no-repeat 50% 50%/100%;
+    position:absolute ;top: 50%;left: 50%;
+    transform: translate(-50%, -50%);/* 박스 가운데 배치 */
+    cursor: pointer;
 }
