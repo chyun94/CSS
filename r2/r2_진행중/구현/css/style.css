@@ -7,39 +7,41 @@ body {
 header {
     width: 100%;
     height: 4rem;
-    /* 4*20=80px */
+    /* 4rem*20px(html 폰트사이즈) = 80px를 높이로, rem은 상대값 */
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
     position: fixed;
     left: 0;
     top: 0;
     z-index: 100;
     display: flex;
+    /* 자식 요소 5개가 모두 가로로 쌓이게 */
     flex-direction: row;
+    /* 가로로 배열, 기본값이 row임 */
     justify-content: space-around;
-    /* 수평정렬 */
+    /* 수평 정렬 */
     align-items: center;
-    /* 수직정렬 */
+    /* 수직 정렬 */
 }
 
 header::before {
-    /* 서브메뉴 배경 */
     content: '';
     position: absolute;
     left: 0;
     right: 0;
+    /* left: 0;, right: 0; = 넓이가 100%라는 이야기 */
     top: 3.95rem;
     background: rgba(0, 0, 0, 0.92);
     transition: 0.3s;
 }
 
 header.on::before {
-    /* .on 제이쿼리 활용하기 */
-    height: 10rem;
+    /* .on 제이쿼리 활용을 위해 가상으로 만듬 */
+    height: 10.1rem;
 }
 
 header:hover,
 header.bg {
-    /* .bg 제이쿼리 활용  */
+    /* .bg 제이쿼리 활용을 위해 가상으로 만듬 */
     background-color: rgba(255, 255, 255, 0.92);
 }
 
@@ -47,19 +49,18 @@ header .logo {}
 
 header .logo a {
     display: block;
+    /* 인라인요소를 블럭으로, 선택 영역을 더 넓게 잡을 수 있게 */
 }
 
-/* 인라인요소를 블럭으로 */
-
 header nav {
-    /*background: #ddd; margin-top: 70px; */
+    /* background: #666; */
+    /* margin-top: 70px; */
 }
 
 header nav>ul {
+    /* nav의 바로 밑 ul. outer를 의미 */
     display: flex;
     /* 자식요소를 가로로 배열 */
-
-
 }
 
 header nav>ul>li {
@@ -70,48 +71,52 @@ header nav>ul>li {
 header nav>ul>li>a {
     display: block;
     height: 3.95rem;
-    /* 79px */
+    /* 4rem이 아닌 이유는 box-sizing 때문에 border값(1px)이 안으로 들어와서 79px의 가운데로 정렬 */
     line-height: 3.95rem;
     color: #fff;
     font-size: 0.8rem;
-    /* 16px */
     padding: 0 2rem;
     position: relative;
+    /* 마우스 올렸을 때 위에 선 */
 }
 
-header nav>ul>li>a:before {
-    /* 초록색선 */
+header nav>ul>li>a::before {
+    /* 초록색 선 */
     display: block;
     content: '';
     position: absolute;
     top: 0;
     left: 50%;
-    /*  선 초기 위치를 가운데로 배치 */
+    /* 선 초기 위치를 가운데로 배치 */
     width: 0;
     height: 3px;
     background: #0f7258;
     transform: translateX(-50%);
-    /* 가운데에서 양옆으로 길게 애니메이션  */
+    /* 가운데에서 양옆으로 길게 애니메이션*/
     transition: 0.5s;
     overflow: hidden;
 }
 
-header nav>ul>li:hover>a:before {
+header nav>ul>li:hover>a::before {
     width: 70%;
-    /* 초록색선 길이 */
+}
+
+header nav>ul>li>a:hover {
+    color: #555;
 }
 
 header:hover nav>ul>li>a,
 /* 헤더에 마우스 오버시 */
-header.bg nav>ul>li>a,
+nav>ul>li:hover>a,
 /* 헤더 배경이 흰색일때 */
-nav>ul>li:hover>a {
+header.bg nav>ul>li>a {
     /* 대메뉴에 마우스 오버시 */
     color: #555;
 }
 
 .inner {
     /* 서브메뉴 */
+    display: none;
     position: absolute;
     left: 0;
     top: 3.95rem;
@@ -119,20 +124,19 @@ nav>ul>li:hover>a {
     height: 9rem;
     text-align: center;
     padding-top: 1rem;
-    display: none;
 }
 
 header nav>ul>li:hover>.inner {
     background-color: rgba(18, 20, 23, 1);
 }
 
-.inner li a {
-    color: #bfbebe;
+.inner>li>a {
     display: block;
+    color: #bfbebe;
     padding: 10px 0;
 }
 
-.inner li a:hover {
+.inner>li>a:hover {
     color: #fff;
 }
 
@@ -147,6 +151,8 @@ header .sns_wrap ul {
 header .sns_wrap ul li {
     width: 33.3333%;
     height: 3.95rem;
+    /* = 79px */
+    /* border: 1px solid red; */
 }
 
 header .sns_wrap ul li a {
@@ -155,6 +161,7 @@ header .sns_wrap ul li a {
     height: 100%;
     background-repeat: no-repeat;
     background-position: center calc(50%);
+    /* 높이의 50% */
     transition: 0.5s;
 }
 
@@ -162,7 +169,6 @@ header .sns_wrap ul li:nth-child(1) a {
     background-image: url(../images/sns_icon01.png);
 }
 
-/* ../ 상위 폴더에 있는 */
 header .sns_wrap ul li:nth-child(2) a {
     background-image: url(../images/sns_icon02.png);
 }
@@ -173,6 +179,7 @@ header .sns_wrap ul li:nth-child(3) a {
 
 header .sns_wrap ul li a:hover {
     background-position: center calc(50% - 10px);
+    /* 위로 10px만 움직이게 */
 }
 
 header .menu {
@@ -181,7 +188,9 @@ header .menu {
 
 header .reserve {
     width: 11.55rem;
+    /* 231px */
     height: 4rem;
+    /* 80px */
     background: url(../images/btn_bg.jpg) no-repeat 100% 0;
     transition: 0.5s;
 }
@@ -203,12 +212,12 @@ header .reserve:hover {
     background-position: 0 0;
 }
 
-/*  비디오 영역 */
+/* 비디오 영역 */
 .sec1 {
     min-height: 32.5rem;
-    /* 650px */
+    /* 최소 사이즈 650px */
     height: 100vh;
-    /*  100 viewport height */
+    /* 보고있는 단말기 높이값 전체를 활용한 viewport height. */
     position: relative;
 }
 
@@ -216,7 +225,7 @@ header .reserve:hover {
     position: absolute;
     left: 0;
     right: 0;
-    /*  w:100% */
+    /* widht값 100% */
     top: 0;
     overflow: hidden;
     z-index: -1;
@@ -231,6 +240,7 @@ header .reserve:hover {
     top: 50%;
     text-align: center;
     transform: translate(-50%, -50%);
+    /* 내 전체 박스사이즈 넓이 반만큼 왼쪽으로, 높이만큼 위로 올라가는 */
 }
 
 .main_text span,
@@ -250,6 +260,7 @@ header .reserve:hover {
     margin-top: 1rem;
 }
 
+/* 고스트 버튼 a 신청하기 */
 .main_text a {
     display: inline-block;
     border: 1px solid #fff;
@@ -257,29 +268,29 @@ header .reserve:hover {
     margin-top: 1.3rem;
     padding: 0.85rem 2.7rem;
     font-size: 1.1rem;
-    font-weight: 500;
+    font-weight: normal;
     transition: 0.4s;
-    transition-delay: 0.2s;
+    animation-delay: 0.2s;
     position: relative;
     overflow: hidden;
 }
 
-.main_text a:before {
-    /* 사선박스 만들기 */
+.main_text a::before {
     content: '';
     position: absolute;
     left: -170%;
     top: -1rem;
-    width: 160%;
-    height: 150%;
-    background: #fff;
+    width: 150%;
+    height: 160%;
+    background-color: #fff;
     z-index: -1;
-    transform: skewX(-30deg);
+    transform: skew(-30deg);
     transition: 0.6s;
 }
 
 .main_text a:hover:before {
     left: -2rem;
+    /* 0으로 하면 왼쪽 상단이 잘 안가려짐 */
 }
 
 .main_text a:hover {
@@ -293,6 +304,7 @@ header .reserve:hover {
     background: url(../images/more_arrow.png) no-repeat -29px 0;
     position: relative;
     top: -4px;
+    left: 20px;
     transition: 0.4s;
     transition-delay: 0.2s;
 }
@@ -301,12 +313,13 @@ header .reserve:hover {
     background-position: 0 0;
 }
 
+/* icon */
 .icon {
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    /* 박스가 가운데 배치 -600px */
+    /* 박스가 가운데 배치, -600px만큼 이동 */
     width: 1200px;
 }
 
@@ -317,7 +330,7 @@ header .reserve:hover {
 
 .icon ul li {
     flex: 1;
-    /* flex-grow,flex-shirink,flex-basis    flex: 1 0 0 부모사이즈에 맞게 늘어남 */
+    /* flex-grow 늘어남, flex-shink 줄어듬, flex-basis 만든만큼 그대로 / flex: 1 0 0; flex-grow만 먹힌거. 화면 부모사이즈에 딱 맞게 늘어났다. */
     text-align: center;
 }
 
@@ -337,10 +350,10 @@ header .reserve:hover {
     width: 45%;
     height: 3px;
     transform: translateX(-50%);
-    background: #0f7258;
+    background-color: #0f7258;
     transition: 0.4s;
     opacity: 0;
-    /* 초록선  안보이게, 나중에 애니메이션으로 부드럽게 보이게 */
+    /* 초록선 안보이게, 나중에 애니메이션으로 부드럽게 보이게 처리하기 위해서 */
 }
 
 .icon ul li a::before {
@@ -352,7 +365,7 @@ header .reserve:hover {
 }
 
 .icon ul li a:hover:before,
-.icon ul li a:hover::after {
+.icon ul li a:hover:after {
     opacity: 1;
 }
 
@@ -451,23 +464,25 @@ header .reserve:hover {
 
 .service ul {
     display: flex;
-    /* 자식요소를 가로로 쌓이게 */
+    /* 자식요소 가로로 쌓이게 */
     justify-content: space-between;
-    /* 양쪽정렬:등분간격 */
+    /* 양쪽정렬 : 등분간격 */
 }
 
 .service ul li {
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, .08);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.08);
 }
 
 .service ul li a {
+    /* 글씨가 이미지위에 얹히기 위해 */
     display: block;
     position: relative;
     background: #0f7258;
     overflow: hidden;
+    /* .ser_text 부모인 a에 overflow : hidden */
 }
 
-.service ul li a .ser_text {
+.service ul a .ser_text {
     position: absolute;
     left: 0;
     right: 0;
@@ -477,25 +492,25 @@ header .reserve:hover {
     padding: 1.5rem 0 1.5rem 1.5rem;
 }
 
-.service ul li a .ser_text strong {
-    font-size: 1.3rem;
-    font-weight: 500;
+.service ul a .ser_text strong {
+    font-size: 1.4rem;
+    font-weight: normal;
     display: block;
     margin-bottom: 10px;
 }
 
-.service ul li a .ser_text p {
+.service ul a .ser_text p {
     line-height: 1.5;
     font-size: 0.9rem;
     font-weight: 300;
     color: #bcbcbc;
 }
 
-.service ul li a:hover img {
+.service ul a:hover img {
     opacity: 0.8;
 }
 
-.service ul li a .ser_text:before {
+.service ul a .ser_text::before {
     content: '';
     width: 100%;
     height: 100%;
@@ -503,33 +518,37 @@ header .reserve:hover {
     left: -100%;
     bottom: 0;
     z-index: -1;
-    background: url(../images/ser_textbg.png) no-repeat 100% 100%/cover;
+    background: url(../images/ser_textbg.png) no-repeat 100% 100%/ cover;
     transition: 0.5s;
 }
 
-.service ul li a:hover .ser_text:before {
+.service ul li a:hover .ser_text::before {
     left: 0;
 }
 
-/* EXPERT 영역 */
+/* sec3, expert */
 .sec3 {
     padding-top: 8rem;
     position: relative;
+
 }
 
-.sec3:before {
+.sec3::before {
+    /* 배경이미지를 넣어주기 위해 */
     content: '';
     position: absolute;
     right: 0;
     top: 0;
     width: 0;
     height: 2200px;
-    background: url(../images/expert_bg.png) no-repeat 100% 0/cover;
+    /* sec4까지 살짝 보이게 */
+    background: url(../images/expert_bg.png) no-repeat 100% 0/ cover;
     transition: 2s;
+    transition-delay: 0.3s;
     z-index: -1;
 }
 
-.sec3.on:before {
+.sec3.on::before {
     width: 100%;
 }
 
@@ -554,10 +573,11 @@ header .reserve:hover {
     transition: 0.5s;
 }
 
-.sec3 .expert {/* ul */
-    margin-top: 2rem;
+.sec3 .expert {
+    /* ul */
     display: flex;
     justify-content: space-between;
+    margin-top: 2rem;
     position: relative;
     top: 20px;
     opacity: 0;
@@ -570,56 +590,63 @@ header .reserve:hover {
     top: 0;
     opacity: 1;
 }
-
 .sec3 .expert li {
-    width: 48%;      
+    width: 48%;
 }
-.sec3 .expert li a{
+.sec3 .expert li a {
     display: block;
     position: relative;
-    box-shadow: 10px 10px 10px rgba(0,0,0,0.8);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.8);
     overflow: hidden;
 }
-.sec3 .expert li a img{
+.sec3 .expert li a img {
     width: 100%;
     transition: 0.5s;
-    /* transform: scale(1.0); */
 }
-.sec3 .expert li a .text{
+.sec3 .expert li a .text {
     position: absolute;
-    left: 0;right: 0;
+    left: 0;
+    right: 0;
     bottom: 0;
     color: #fff;
-    background: rgba(33,33,33,0.3);
+    background: rgba(33, 33, 33, 0.3);
     padding: 1.5rem 0 1.5rem 2.2rem;
     transition: 0.3s;
 }
-.sec3 .expert li a .text::before{/* 세로라인 */
+.sec3 .expert li a .text::before {
     content: '';
-    position: absolute;top: 0;left: 1.1rem;
+    position: absolute;
+    top: 0;
+    left: 1.1rem;
     width: 3px;
     height: 80%;
     background: #fff;
 }
-.sec3 .expert li a .text span{
+.sec3 .expert li a .text span {
     font-size: 0.9rem;
     display: block;
     font-weight: 300;
     margin-bottom: 10px;
 }
-.sec3 .expert li a .text strong{
+.sec3 .expert li a .text strong {
     font-size: 1.2rem;
     font-weight: 400;
 }
-.sec3 .expert li a:hover img{
+.sec3 .expert li a:hover img {
     transform: scale(1.1);
 }
-.sec3 .expert li a:hover .text{
-    background: rgba(15,114,88,0.7);
+.sec3 .expert li a:hover .text {
+    background: rgba(15, 114, 88, 0.7);
 }
-.homeCheck{display: flex;margin-top: 2rem; border: 1px solid #f00    ;}
-.homeCheck .text{width: 40%;align-self: center;}
-.homeCheck .text .homeCheck_title{
+.homeCheck {
+    display: flex;
+    margin-top: 2rem;
+}
+.homeCheck .text {
+    width: 40%;
+    align-self: center;
+}
+.homeCheck .text .homeCheck_title {
     color: #fff;
     text-transform: uppercase;
     font-size: 1.7rem;
@@ -627,33 +654,878 @@ header .reserve:hover {
     margin-bottom: 3rem;
     position: relative;
 }
-.homeCheck .text .homeCheck_title:after{/* 라인 */
-  content: '';
-  position: absolute;
-  left: -1rem;
-  bottom:-1rem;
-  width: 110%;height: 1px;
-  background: #fff;z-index: 2;
+.homeCheck .text .homeCheck_title::after { /* 라인 */
+    content: '';
+    position: absolute;
+    left: -1rem;
+    bottom: -1rem;
+    width: 110%;
+    height: 1px;
+    background: #fff;
+    z-index: 2;
 }
-.homeCheck .text p{
+.homeCheck .text p {
     color: #b6e7da;
     line-height: 2;
     font-size: 1rem;
     font-weight: 300;
 }
-
-.homeCheck .img{
-  width: 60%;
-  position: relative;
-  box-shadow: 10px 10px 10px rgba(0,0,0,0.08);
-  overflow: hidden;
+.homeCheck .img {
+    width: 60%;
+    position: relative;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
 }
-.homeCheck .img img{width: 100%;transition: 0.5s;}
-.homeCheck .img:hover img{transform: scale(1.1);}
-.homeCheck .img .play_btn{
-    width: 5rem;height: 5rem;
-    background:url(../images/video_play.png) no-repeat 50% 50%/100%;
-    position:absolute ;top: 50%;left: 50%;
-    transform: translate(-50%, -50%);/* 박스 가운데 배치 */
+.homeCheck .img img {
+    width: 100%;
+}
+.homeCheck .img .play_btn {
+    width: 5rem;
+    height: 5rem;
+    background: url(../images/video_play.png) no-repeat 50% 50%/100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* left: calc(50% - 2rem);
+    top: calc(50% - 2rem); */
     cursor: pointer;
+}
+/* AWARDS 영역 */
+.sec4 {
+    margin-top: 8rem;
+}
+.sec4 .title {
+    color: #fff;
+}
+.sec4 .subTitle {
+    color: #b6e7da;
+}
+.sec4 .awards, .text_list {
+    width: 1200px;
+    margin: 50px auto 0;
+}
+.sec4 .awards ul {
+    display: flex;
+    justify-content: space-between;
+}
+.sec4 .awards ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 31%;
+    /* height: 100%; */
+    background: rgba(8, 40, 31, 0.9);
+    padding: 3rem 0;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.23);
+    position: relative;
+}
+.sec4 .awards ul li::before, .sec4 .awards ul li::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    width: 50%;
+    height: 5px;
+}
+.sec4 .awards ul li::before {
+    top: 0;
+}
+.sec4 .awards ul li::after {
+    bottom: 0;
+}
+.sec4 .awards ul li .awards_icon {
+    width: 5rem;
+}
+.sec4 .awards ul li .awards_icon img {
+    width: 100%;
+}
+.sec4 .awards ul li .text {
+    margin-left: 1.8rem;
+}
+.sec4 .awards ul li .text strong{
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 12px;
+    color: #fff;
+}
+.sec4 .awards ul li .text span {
+    display: block;
+    font-size: 1rem;
+    color: #fff;
+}
+.sec4 .text_list ul {
+    display: flex;
+}
+.sec4 .text_list ul li {
+    flex: 1;
+}
+.sec4 .text_list ul li p {
+    padding: 0 1rem;
+    color: #b6e7da;
+    font-size: 0.7rem;
+    line-height: 1.8;
+    position: relative;
+}
+.sec4 .text_list ul li p::before {
+    content: '';
+    width: 9px;
+    height: 9px;
+    border: 2px solid #fff;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 6px;
+    transform: rotate(15deg);
+}
+/* news 영역 */
+.sec5 {
+    position: relative;
+}
+.sec5::before {
+    content: '';
+    position: absolute;
+    right: 2%;
+    top: 160px;
+    width: 900px;
+    height: 585px;
+    background: url(../images/info_img03.jpg) no-repeat;
+    transform: scale(0.75);
+    opacity: 0.2;
+    z-index: -1;
+}
+.sec5_inner {
+    width: 1200px;
+    margin: 6rem auto 0;
+}
+.sec5 .title_wrap {
+    position: relative;
+    width: 32%;
+    float: right;
+    top: 140px;
+}
+.sec5 .title_wrap .title {
+    text-align: left;
+}
+.sec5 .title_wrap .subTilte {
+    text-align: left;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    color: #999;
+}
+.sec5 .news {
+    display: flex;
+    justify-content: space-between;
+}
+.sec5 .news .left {
+    width: 65%;
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 배치 */
+    flex-wrap: wrap; /* flex-wrap: wrap 밑으로, no wrap 옆으로
+    넣어준 이유 : 줄바꿈 하겠음. 밑으로 쌓임 */
+}
+.sec5 .news .left li:nth-child(1) {
+    width: 70%;
+    height: 210px;
+}
+.sec5 .news .left li:nth-child(2) {
+    width: 100%;
+    margin-top: 2rem;
+}
+.sec5 .news ul li img {
+    width: 100%;
+    transition: 0.3s;
+}
+.sec5 .news ul li a {
+    display: block;
+    height: 100%;
+    position: relative;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.23);
+    background: #0f7258;
+    transition: 0.3s;
+    overflow: hidden;
+}
+.sec5 .news ul li a:hover img {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+.sec5 .news ul li a .text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(33, 33, 33, 0.5);
+    padding: 1.5rem 0.5rem 1.5rem 2.2rem;
+}
+.sec5 .news ul li a .text span {
+    font-size: 0.9rem;
+    display: block;
+    font-weight: 300;
+    margin-bottom: 10px;
+    color: #fff;
+}
+.sec5 .news ul li a .text strong {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 400;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.sec5 .news ul li a .text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1.1rem;
+    width: 3px;
+    height: 80%;
+    background: #fff;
+}
+.sec5 .news ul li a:hover .text {
+    background: rgba(0, 98, 73, 0.7);
+}
+.sec5 .news .right {
+    width: 32%;
+    position: relative;
+    top: 14rem;
+}
+/* sec5 끝 */
+
+/* 고객후기 영역 */
+.sec6_inner {
+    width: 1200px;
+    margin: 8rem auto 0;
+}
+.sec6_inner .title_wrap::before {
+    width: 100%;
+    top: 4.3rem;
+}
+.sec6_inner .title, .sec6_inner .subTitle {
+    text-align: left;
+}
+.sec6_inner .btn_more {
+    top: 1.1rem;
+}
+.sec6_inner .thumnail {
+    margin-top: 3rem;
+}
+.sec6_inner .thumnail ul {
+    display: flex;
+    justify-content: space-between;
+}
+.sec6_inner .thumnail ul li {
+    width: 23.5%;
+}
+.sec6_inner .thumnail ul li a {}
+.sec6_inner .thumnail ul li a .img {
+    display: block;
+    height: 10rem;
+    overflow: hidden;
+    position: relative;
+}
+.sec6_inner .thumnail ul li a .img::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #38ac8e;
+    box-sizing: border-box;
+    transition: 0.6s;
+    z-index: 1;
+    opacity: 0;
+}
+.sec6_inner .thumnail ul li a .img::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(6, 24, 21, 0.7);
+    background-image: url(../images/cus_more.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transition: 0.6s;
+    opacity: 0;
+}
+.sec6_inner .thumnail ul li a .img img {
+    width: 100%;
+}
+.sec6_inner .thumnail ul li a:hover .img::before {
+    opacity: 1;
+    border: 10px solid #38ac8e;
+}
+.sec6_inner .thumnail ul li a:hover .img::after {
+    opacity: 1;
+}
+.sec6_inner .thumnail ul li a .text {
+    margin-top: 1.5rem;
+}
+.sec6_inner .thumnail ul li a .text .icon_best {
+    display: block;
+    width: 34px;
+    height: 17px;
+    background: url(../images/best_icon.jpg) no-repeat;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+.sec6_inner .thumnail ul li a .text strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: -0.025rem;
+    margin: 5px 0 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.sec6_inner .thumnail ul li a .text .name {
+    font-weight: 300;
+}
+.sec6_inner .thumnail ul li a .text .date {
+    color: #969696;
+    position: relative;
+    padding-left: 10px;
+}
+.sec6_inner .thumnail ul li a .text .date::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 0.6rem;
+    background: #969696;
+} 
+/*게시판 영역*/
+.sec6_inner .board {
+    display:flex;
+    flex-wrap:wrap; 
+    justify-content:space-between;
+    margin-top:5rem;
+}
+.sec6_inner .board > div {
+    width:48%;
+}
+.sec6_inner .board .title_wrap:before {
+    top:2.2rem;
+}
+.sec6_inner .board .btn_more {
+    top:-1rem;
+}
+.sec6_inner .board ul {
+    margin-top:1rem;
+}
+.sec6_inner .board ul li {
+    border-bottom:1px dashed #eee;
+}
+.sec6_inner .board ul li a {
+    display:block;
+    padding:15px 3px;
+    color:#647671;
+    position:relative;
+}
+.sec6_inner .board ul li a:hover {
+    background:#f5f5f5;
+    color:#262626;
+}
+.sec6_inner .board ul li a span {
+    display:inline-block;
+    max-width:50%;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow:hidden;
+    margin:0 4px -2px 10px;
+    font-size:16px;
+}
+.sec6_inner .board ul li a:after {
+    content:'..';
+    letter-spacing:2px;
+    position:absolute;
+    right:1rem;
+    top:32%;
+}
+
+.sec6_inner .btn_reserve {
+    display:block;
+    border:1px solid #4c9280;
+    width:14rem;
+    height:3rem;
+    box-sizing:border-box;
+    text-align:center;
+    line-height:3rem;
+    font-size:1rem;
+    color:#4c9280;
+    margin:4rem auto 5rem;
+    transition:.4s;
+    transition-delay:0.2s;
+    position:relative;
+    overflow:hidden; 
+        
+}
+.sec6_inner .btn_reserve i {
+    display:inline-block;
+    width:29px;
+    height:11px;
+    background:url(../images/go_more_arrow.png) no-repeat -29px 0;
+    position:relative;
+    top:-3px;
+    margin-left:1rem;
+    transition:.4s;
+}
+.sec6_inner .btn_reserve:before {
+    content:'';
+    position:absolute;
+    left:-194%;
+    top:-1px;
+    width:180%;
+    height:200%;
+    background:#4c9280;
+    transform:skewX(-35deg);
+    z-index:-1;
+    transition:.6s;
+}
+.sec6_inner .btn_reserve:hover {
+    color:#fff;
+}
+.sec6_inner .btn_reserve:hover:before {
+    left:-30%;
+}
+.sec6_inner .btn_reserve:hover i {
+    background-position:0 0; 
+}
+
+/*footer 영역*/
+footer .site_map_wrap {
+    background:#262626;
+    padding-top: 6rem;
+}
+footer .site_map {
+    width:1200px;
+    margin:0 auto;
+    color:#fff;
+    padding:30px 0;
+}
+footer .site_map > ul {
+    display:flex;
+    flex-wrap:wrap;
+    border-left:1px solid #373838;
+    border-right:1px solid #373838;
+}
+footer .site_map > ul > li {
+    width:25%;
+    height:230px;
+    padding-left:30px;
+    box-sizing:border-box; 
+}
+footer .site_map > ul > li ~ li {
+    border-left:1px solid #373838;
+}
+footer .site_map > ul > li > strong {
+    font-weight:500;
+    font-size:18px;
+    color:#6bd4b9;
+}
+footer .site_map .site_map_inner {
+    margin-top:35px;
+}
+footer .site_map .site_map_inner li {
+    margin-bottom:20px; 
+}
+
+footer .site_map .site_map_inner li a {
+    color:#b3b3b3;
+    font-size:16px;
+    position:relative;
+}
+footer .site_map .site_map_inner li a:hover {
+    color:#fff;
+}
+footer .site_map .site_map_inner li a:before {
+    content:'';
+    height:1px;
+    width:0;
+    background:#fff;
+    position:absolute;
+    left:-30px;
+    top:50%;
+    transform:translateY(-50%);
+    overflow:hidden;
+    transition:0.3s;
+}
+footer .site_map .site_map_inner li a:hover:before {
+    width:12px;
+}
+
+footer .sns {
+    margin:2rem 0;
+}
+footer .sns ul {
+    display:flex;
+    justify-content:center; 
+}
+footer .sns ul li ~ li {
+    margin-left:20px;
+}
+footer .sns ul li:hover a img {
+    animation:ani .8s;
+}
+
+@keyframes ani {
+    0% {
+        transform:translateY(0);
+    }
+    50% {
+        transform:translateY(-15px);
+    }
+    100% {
+        transform:translateY(0);
+    }
+}
+
+.footer {
+    width:1200px;
+    margin:0 auto;
+    display:flex;
+    flex-wrap:wrap;
+    padding-bottom:3rem; 
+}
+.footer .footer_logo {
+    width:26%;
+}
+.footer address {
+    width:74%;
+    font-size:15px;
+    color:#626262;
+    font-weight:300; 
+}
+.footer address p {
+    line-height:1.8; 
+}
+.footer address p ~ p {
+    margin-top:20px;
+    font-size:14px; 
+}
+.footer address p em {
+    color:#262626;
+}
+.footer address p span {
+    color:#227a63;
+}
+.footer address p i {
+    display:inline-block;
+    width:1px;
+    height:13px;
+    background:#969696;
+    position:relative;
+    top:1px;
+    margin:0 8px;
+}
+/* Media Query */
+/* 768px을 제일 큰 모바일 사이즈로 봄 보통. 
+min으로 잡으면 작은 사이즈부터 */
+/* @media screen and (min-width:768px){}
+@media screen and (min-width:1024px){}
+@media screen and (min-width:1280px){} */
+
+/* max로 잡으면 큰 사이즈부터 */
+@media screen and (max-width:1280px){ /* 1025 ~ 1280px */
+    nav {display: none;}
+    header .menu {
+        display: block;
+        width: 3rem;
+        height: 3.95rem;
+        background-image: url(../images/menu_btn.png);
+        background-repeat: no-repeat;
+        background-position: 0 50%;
+        cursor: pointer;
+        text-indent: -9999px;
+    }
+    
+    header:hover .menu, header.bg .menu{
+        background-image: url(../images/menu_btn2.png);
+    }
+    .sns_wrap {
+        right: 20.55rem;
+    }
+    header .reserve {
+        display: none;
+    }
+    .icon, .service, .sec3_inner, .sec4 .awards, .sec4 .text_list, .sec5_inner, .sec6_inner, footer .site_map, .footer{
+        width: 90%;
+    }
+    .service ul li {
+        width: 32%;
+    }
+    .service ul li img {
+        width: 100%;
+    }
+    .sec6_inner .board ul li a span {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width:1024px){ /* 767 ~ 1024 */
+    html {
+        font-size: 16px;
+    }
+    .logo img {
+        width: 9.375rem; /* 16px * 9.375 = 150 */
+    }
+    .menu {
+        background-size: auto 3rem;
+    }
+    .main_text a {
+        background-size: auto 9px;
+        background-position: -24px 0;
+    }
+    .service ul li a .ser_text::before {
+        background-size: auto 7.75rem; /* 124px */
+    }
+    .sec3 .expert li {
+        width: 80%;
+    }
+    .sec3 .expert li ~ li{ /* 첫번째 li 바로 뒤 li 선택 */
+        margin-top: 1.5rem;
+    }
+    .sec3 .expert li:nth-child(2) {
+        margin-left: auto;
+    }
+    .homeCheck {
+        flex-direction: column;
+        margin-top: 4rem;
+    }
+    .homeCheck .text {
+        width: 100%;
+    }
+    .homeCheck .homeCheck_title:after{
+        left: 0;
+        margin-top: 2rem;
+    }
+    .homeCheck .img{
+        width: 100%;
+        left: 0;
+    }
+}
+@media screen and (max-width:768px){ /*  */
+    html{
+        font-size: 14px;
+    }
+    .sns_wrap{
+        display: none;
+    }
+    .main_text{
+        top: 40%;
+    }
+    .main_text a i{
+        background-size: auto 8rem;
+    }
+    .icon ul{
+        flex-wrap: wrap;
+    }
+    .icon ul li{
+        width: 33.3333%;
+        flex: auto;
+    }
+    .service ul{
+        /* 세로로 배열(열) */
+        flex-direction: column;
+    }
+    .service ul li{
+        /* 지그재그로 해봅시다 */
+        width: 70%;
+        margin-left: 16%;
+    }
+    .service ul li ~ li{
+        margin-top: 2rem;
+    }
+    .service ul li:nth-child(2){
+        margin-left: 2rem;
+    }
+    .service ul li a .ser_text p{
+        /* font-size: 14px;  같은거*/
+        font-size: 1rem;
+    }
+    .sec3:before{
+        height: 1500px;
+    }
+    .sec4 .title{
+        color: #333;
+    }
+    .sec4 .subTitle{
+        color: #969696;
+    }
+    .sec4 .awards ul li .text{
+        margin-left: 1rem;
+    }
+    .sec4 .text_list ul{
+        flex-direction: column;
+    }
+    .sec4 .text_list ul li ~ li{
+        margin-top: 20px;
+    }
+    .sec4 .text_list ul li p{
+        color: #969696;
+        padding-right: 0;
+    }
+    .sec4 .text_list ul li p:before{
+        border: 2px solid #969696;
+        top: 3px;
+    }
+    .sec5 .title_wrap{
+        float: none;
+        width: 100%;
+        top: 0;
+    }
+    .sec5 .news{
+        display: block;
+        margin-top: 3rem;
+    }
+    .sec5 .news .left, .sec5 .news .right{
+        width: 100%;
+    }
+    .sec5 .news .left li:nth-child(1){
+        width: 100%;
+        height: auto;
+    }
+    .sec5 .news .right{
+        position: static;
+        margin-top: 40px;
+    }
+    .sec6_inner .thumnail ul{
+        flex-wrap: wrap;
+    }
+    .sec6_inner .thumnail ul li{
+        width: 48%;
+    }
+    .sec6_inner .thumnail ul li:nth-child(2) ~ li{
+        margin-top: 40px;
+    }
+    .sec6_inner .thumnail ul li a.img{
+        height: 12rem;
+    }
+    .sec6_inner .board >div{
+        width: 100%;
+    }
+    .sec6_inner .board .reserve{
+        margin-bottom: 60px;
+    }
+    footer .site_map >ul{
+        border: none;
+    }
+    footer .site_map >ul > li{
+        width: 50%;
+    }
+    footer .site_map >ul > li:nth-child(3){
+        border: none;
+    }
+    footer .site_map >ul > li:nth-child(2) ~ li{
+        border-top: 1px solid #313535;
+        padding-top: 30px;
+    }
+    .footer{
+        text-align: center;
+    }
+    .footer address{
+        width: 100%;
+    }
+    .footer .footer_logo img{
+        width: 100%;
+    }
+    .footer .footer_logo{
+        margin: 0 auto;
+        width: 40%;
+    }
+}
+@media screen and (max-width:480px){ /*  */
+    header{
+        padding: 0 1.5rem;
+    }
+    .logo img{
+        width: 8.57rem;
+    }
+    .service ul li{
+        width: 85%;
+    }
+    .sec3:before{
+        height: 1100px;
+    }
+    .sec3 ,.expert li{
+        width: 94%;
+    }
+    .sec3 .expert li a .text{
+        padding: 1.2rem 1.2rem 1.8rem;
+    }
+    .sec3 .expert li a .text span{
+        font-size: 14px;
+    }
+    .sec3 .expert li a .text strong{
+        font-size: 16px;
+    }
+    .sec4 .awards ul li{
+        flex-direction: column;
+        margin-bottom: 14px;
+    }
+    .sec4 .awards ul li .awards_icon{
+        width: 50px;
+        margin-bottom: 14px;
+    }
+    .sec4 .awards ul li .text{
+        color: #fff;
+        margin-left: 0;
+    }
+    .sec4 .awards ul li .text strong{
+        font-size: 16px;
+    }
+    .sec4 .awards ul li .text span{
+        font-size: 12px;
+    }
+    .sec6_inner .thumnail ul li .img{
+        height: 8rem;
+    }
+    .sec6_inner .board ul li .img{
+        display: block;
+        margin-bottom: 8px;
+    }
+    .sec6_inner .board ul li a span{
+        margin-left: 0;
+        min-width: 75%;
+    }
+    .sec6_inner .board ul li a:after{
+        top: 43%;
+    }
+    .footer{
+        text-align: center;
+    }
+    .footer address{
+        font-size: 13px;
+    }
+    .footer address p ~ p{
+        font-size: 12px;
+    }
+}
+@media screen and (max-width:420px){ /*  */
+    .main_text span{
+        font-size: 20px;
+    }
+    .main_text strong{
+        font-size: 36px;
+    }
+    .icon ul li a h3{
+        font-size: 14px;
+    }
+    footer .site_map >ul >li{
+        padding-left: 20px;
+    }
+    footer .site_map >ul >li >strong{
+        font-size: 16px;
+    }
+    footer .site_map .site_map_wrap li a{
+        font-size: 14px;
+    }
+    footer .site_map .site_map_wrap li a:before{
+        margin-left: -20px;
+    }
 }
